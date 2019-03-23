@@ -3,6 +3,8 @@ package skeleton;
 import java.util.Scanner;
 
 public class Application {
+	public static String log = "";
+	public static int tabs = -1;
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -89,10 +91,10 @@ public class Application {
 					input = Integer.parseInt(s.nextLine());
 					switch(input){
 						case 1:
-							//TODO: Move to an empty field
+							PandaStepsOnEmptyField();
 							break;
 						case 2:
-							//TODO: Move to a weakfield, and weakfield hitpoints decreases
+							PandaStepsOnWeakfield();
 							break;
 						case 3:
 							//TODO: Move to a weakfield, and weakfield breaks
@@ -144,5 +146,33 @@ public class Application {
 				System.exit(0);
 			}
 		}
+	}
+	public static boolean yesno(String question){
+        System.out.println(question + "\r\n" + "I/N");
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine().toLowerCase().equals("i");
+    }
+
+    public static void logger(String method){
+		log = log + new String(new char[tabs]).replace("\0", "\t");
+		log += method + "\r\n";
+	}
+
+	public static void PandaStepsOnEmptyField(){
+		Field currentField = new Field();
+		Panda panda = new Panda(currentField);
+		Field nextField = new Field();
+		panda.Move(nextField);
+		System.out.println(log);
+		log = "";
+	}
+
+	public static void PandaStepsOnWeakfield(){
+		Field currentField = new Field();
+		Panda panda = new Panda(currentField);
+		Field weakField = new WeakField();
+		panda.Move(weakField);
+		System.out.println(log);
+		log = "";
 	}
 }

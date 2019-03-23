@@ -2,8 +2,8 @@ package skeleton;
 
 public class Animal {
 	
-	private Animal follower;
-	private Field field;
+	Animal follower;
+	Field field;
 	
 	public void Move() {
 		
@@ -14,7 +14,8 @@ public class Animal {
 	}
 	
 	public void Die() {
-		
+		Release();
+
 	}
 	
 	public void Lazy(Fotel f) {
@@ -40,6 +41,8 @@ public class Animal {
 	public Field GetField() {
 		return field;
 	}
+
+	public void setField(Field f){field = f;}
 	
 	public void Follow(Animal a) {
 		
@@ -59,6 +62,10 @@ public class Animal {
 	
 	public void Hit(Panda p) {
 		
+	}
+
+	public void Release(){
+
 	}
 	
 	public void SetFollower(Animal a) {

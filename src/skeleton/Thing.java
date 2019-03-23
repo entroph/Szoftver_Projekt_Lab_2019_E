@@ -1,5 +1,7 @@
 package skeleton;
 
+import static skeleton.Application.*;
+
 public class Thing implements Steppable{
 
 	private Field field;
@@ -9,6 +11,14 @@ public class Thing implements Steppable{
 	}
 	
 	public boolean InteractWith(Animal a) {
-		return false;
+		tabs++;
+		logger(toString() + ".InteractWith");
+		tabs--;
+		return yesno("Lehet-e interakcióba lépni ezzel a tárggyal?");
+	}
+
+	@Override
+	public String toString() {
+		return "Thing";
 	}
 }
