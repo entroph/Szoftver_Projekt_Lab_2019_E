@@ -38,6 +38,10 @@ public class WeakField extends Field {
 		tabs++;
 		logger(toString()+".DecreaseHitpoints()");
 		hitpoints--;
+		if(hitpoints <= 0){
+			animal.Die();
+			Delete();
+		}
 		tabs--;
 	}
 
