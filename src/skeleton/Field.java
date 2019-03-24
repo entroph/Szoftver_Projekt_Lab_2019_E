@@ -10,9 +10,27 @@ public class Field {
 	ArrayList<Field> neighbors;
 	Animal animal;
 	Thing thing;
-	
-	public ArrayList<Field> getNeighbors(){
+
+	public Field(){
+		neighbors = new ArrayList<Field>();
+		animal =  null;
+		thing = null;
+	}
+
+	public ArrayList<Field> getNeighbors()
+	{
+		tabs++;
+		logger(toString() + ".GetNeighbors");
+		tabs--;
 		return neighbors;
+	}
+
+	public void SetNeighbor(Field neighborField) {
+		tabs++;
+		logger(toString() + ".SetNeighbor");
+		tabs--;
+		neighbors.add(neighborField);
+		//neighborField.SetNeighbor(this); //Nem tudom ez miert nem mukodik, majd gondolkodjon rajta valaki
 	}
 	
 	public void Accept(Animal a) {
@@ -34,12 +52,17 @@ public class Field {
 		tabs++;
 		logger(toString() + ".getThing");
 		tabs--;
-		if(yesno("Van a mezőn tárgy?")){
+		/*if(yesno("Van a mezőn tárgy?")){
 			return thing;
 		}else{
 			return null;
-		}
+		}*/
+		return thing;
 
+	}
+
+	public void setThing(Thing t){
+		this.thing = t;
 	}
 	
 	public void Delete() {
@@ -50,15 +73,22 @@ public class Field {
 		tabs++;
 		logger(toString() + ".getAnimal");
 		tabs--;
-		if(yesno("Van a mezőn állat?")){
+		/*if(yesno("Van a mezőn állat?")){
 			return animal;
 		}else{
 			return null;
-		}
+		}*/
+		return animal;
 	}
-	
-	public void decreaseHitpoints(int amount) {
-		
+
+	public void setAnimal(Animal a){
+		this.animal = a;
+	}
+
+	public void DecreaseHitpoints(int amount) {
+		tabs++;
+		logger(toString()+".DecreaseHitpoints (Happens nothing)");
+		tabs--;
 	}
 
 	@Override

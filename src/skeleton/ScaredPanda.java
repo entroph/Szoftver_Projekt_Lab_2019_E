@@ -1,12 +1,23 @@
 package skeleton;
 
+import static skeleton.Application.*;
+
 public class ScaredPanda extends Panda{
 
-	public ScaredPanda(Field cf) {
-		super(cf);
+	public void Scare() {
+		tabs++;
+		logger(toString() + ".Scare");
+		tabs--;
+
+		Panda follower = (Panda)this.GetFollower();
+		while(follower != null){
+			follower.SetFollowing(null);
+			follower = (Panda)follower.GetFollower();
+		}
 	}
 
-	public void Scare() {
-		
+	@Override
+	public String toString(){
+		return "ScaredPanda";
 	}
 }

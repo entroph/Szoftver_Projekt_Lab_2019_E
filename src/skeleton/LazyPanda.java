@@ -8,8 +8,8 @@ public class LazyPanda extends Panda{
 		super(cf);
 	}
 
-	public void Lazy(Fotel f) {
-		
+	public boolean Lazy(Fotel f) {
+		return true;
 	}
 	
 	public void UnLazy(Fotel f) {

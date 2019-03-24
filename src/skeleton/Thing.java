@@ -4,17 +4,22 @@ import static skeleton.Application.*;
 
 public class Thing implements Steppable{
 
-	private Field field;
+	protected Field field;
 	
 	public void Step() {
 		
 	}
 	
 	public boolean InteractWith(Animal a) {
-		tabs++;
-		logger(toString() + ".InteractWith");
-		tabs--;
-		return yesno("Lehet-e interakcióba lépni ezzel a tárggyal?");
+		return false;
+	}
+
+	public void SetField(Field f){
+		this.field = f;
+	}
+
+	public Field GetField(){
+		return this.field;
 	}
 
 	@Override
