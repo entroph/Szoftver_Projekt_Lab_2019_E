@@ -47,6 +47,9 @@ public class Animal {
 	}
 	
 	public boolean Lazy(Fotel f) {
+		tabs++;
+		logger(toString()+".Die");
+		tabs--;
 		return false;
 	}
 	
@@ -105,7 +108,9 @@ public class Animal {
 	}
 
 	public void Release(){
-
+		tabs++;
+		logger(toString()+".Release");
+		tabs--;
 	}
 	
 	public void SetFollower(Animal a) {
@@ -114,5 +119,10 @@ public class Animal {
 	
 	public Animal GetFollower() {
 		return follower;
+	}
+
+	@Override
+	public String toString() {
+		return "Animal";
 	}
 }

@@ -12,7 +12,6 @@ public class Arcade extends Thing{
 	public void Jingle() {
 		tabs++;
 		logger(toString() + ".Jingle");
-		//tabs--;
 
 		ArrayList<Field> neighs = this.GetField().getNeighbors();
 		if(neighs != null){
@@ -22,6 +21,7 @@ public class Arcade extends Thing{
 					tempAnimal.Scare();
 			}
 		}
+		tabs--;
 	}
 	
 	public boolean InteractWith(Animal a) {

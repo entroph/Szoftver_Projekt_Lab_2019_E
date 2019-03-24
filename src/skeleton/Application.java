@@ -186,7 +186,7 @@ public class Application {
 							thingTriggersOnAnimal(new JumpingPanda(), ThingType.VENDINGMACHINE);
 							break;
 						case 14:
-							//TODO: Fotel steps
+							thingTriggersOnAnimal(new LazyPanda(), ThingType.FOTEL);
 							break;
 						case 15:
 							//TODO: Fotel empties

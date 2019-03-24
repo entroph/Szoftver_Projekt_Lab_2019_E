@@ -52,11 +52,6 @@ public class Field {
 		tabs++;
 		logger(toString() + ".getThing");
 		tabs--;
-		/*if(yesno("Van a mezőn tárgy?")){
-			return thing;
-		}else{
-			return null;
-		}*/
 		return thing;
 
 	}
@@ -73,11 +68,6 @@ public class Field {
 		tabs++;
 		logger(toString() + ".getAnimal");
 		tabs--;
-		/*if(yesno("Van a mezőn állat?")){
-			return animal;
-		}else{
-			return null;
-		}*/
 		return animal;
 	}
 
