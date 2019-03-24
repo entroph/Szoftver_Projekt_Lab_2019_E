@@ -20,30 +20,30 @@ public class Field {
 	public ArrayList<Field> getNeighbors()
 	{
 		tabs++;
-		logger(toString() + ".GetNeighbors");
+        logger(toString() + ".getNeighbors");
 		tabs--;
 		return neighbors;
 	}
 
-	public void SetNeighbor(Field neighborField) {
+    public void setNeighbor(Field neighborField) {
 		tabs++;
-		logger(toString() + ".SetNeighbor");
+        logger(toString() + ".setNeighbor");
 		tabs--;
 		neighbors.add(neighborField);
 		//neighborField.SetNeighbor(this); //Nem tudom ez miert nem mukodik, majd gondolkodjon rajta valaki
 	}
-	
-	public void Accept(Animal a) {
+
+    public void accept(Animal a) {
 		tabs++;
-		logger(toString() + ".Accept");
+        logger(toString() + ".accept");
 		tabs--;
 		animal = a;
 		a.setField(this);
 	}
-	
-	public void Remove(Animal a) {
+
+    public void remove(Animal a) {
 		tabs++;
-		logger(toString() + ".Remove");
+        logger(toString() + ".remove");
 		tabs--;
 		animal = null;
 	}
@@ -59,8 +59,8 @@ public class Field {
 	public void setThing(Thing t){
 		this.thing = t;
 	}
-	
-	public void Delete() {
+
+    public void delete() {
 		
 	}
 	
@@ -75,9 +75,9 @@ public class Field {
 		this.animal = a;
 	}
 
-	public void DecreaseHitpoints(int amount) {
+    public void decreaseHitpoints(int amount) {
 		tabs++;
-		logger(toString()+".DecreaseHitpoints (Happens nothing)");
+        logger(toString() + ".decreaseHitpoints (Happens nothing)");
 		tabs--;
 	}
 

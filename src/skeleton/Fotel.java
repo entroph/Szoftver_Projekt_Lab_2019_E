@@ -17,16 +17,16 @@ public class Fotel extends Thing{
 	}
 
 
-	public void Step() {
+    public void step() {
 		tabs++;
-		logger(toString() + ".Step");
+        logger(toString() + ".step");
 		if(!busy) {
-			ArrayList<Field> neighs = this.GetField().getNeighbors();
+            ArrayList<Field> neighs = this.getField().getNeighbors();
 			if (neighs != null) {
 				for (Field field : neighs) {
 					Animal tempAnimal = field.getAnimal();
 					if (tempAnimal != null) {
-						if (tempAnimal.Lazy(this)) {
+                        if (tempAnimal.lazy(this)) {
 							break;
 						}
 						//Only one panda can sit into a Fotel, so the first one sits down in it
@@ -37,25 +37,33 @@ public class Fotel extends Thing{
 		}else{
 			sitTime--;
 			if(sitTime == 0){
-				Empty();
+                empty();
 			}
 		}
 		tabs--;
 	}
-	
-	public void Empty() {
-		sittingPanda.UnLazy(this);
-		busy = false;
-		sitTime = 5;
+
+    public void empty() {
+        sittingPanda.unLazy(this);
+        setBusy(false);
+        setSitTime(5);
 	}
-	
-	public void SetPanda(LazyPanda p) {
+
+    public void setPanda(LazyPanda p) {
 		sittingPanda = p;
 	}
 
-	public boolean InteractWith(Animal a) {
+    public void setSitTime(int amount) {
+        sitTime = amount;
+    }
+
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
+
+    public boolean interactWith(Animal a) {
 		tabs++;
-		logger(toString() + ".InteractWith");
+        logger(toString() + ".interactWith");
 		tabs--;
 		return false;
 	}

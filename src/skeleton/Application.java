@@ -22,10 +22,10 @@ public class Application {
 
     public static void main(String[] args) {
         game = new Game();
-        Menu();
+		menu();
 	}
 
-	private static void Menu(){
+	private static void menu() {
 		Scanner s = new Scanner(System.in);
 
 		while(true) {
@@ -81,9 +81,9 @@ public class Application {
 							if(yesno("Koveti az orangutant mar Panda?")) {
 								Panda pandaOnField = new Panda();
 								if(yesno("Kovet mar egy masik Orangutant a Panda, akit megprobalunk megfogni?")) {
-                                    pandaOnField.SetFollowing(new Orangutan());
+									pandaOnField.setFollowing(new Orangutan());
                                 }else {
-                                    pandaOnField.SetFollowing(null);
+									pandaOnField.setFollowing(null);
                                 }
 								moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, pandaOnField, new Panda());
 							}
@@ -94,9 +94,9 @@ public class Application {
 						case 9:
 							if(yesno("Koveti az orangutant mar Panda?")) {
 								if(yesno("A pandasor tavozasa utan marad meg Panda a palyan?")) {
-                                    game.GetMap().SetNumberOfPandas(20);
+									game.getMap().setNumberOfPandas(20);
                                 }else {
-                                    game.GetMap().SetNumberOfPandas(1);
+									game.getMap().setNumberOfPandas(1);
                                 }
 								moveAnimalToField(new Orangutan(), FieldType.EXIT, null, new Panda());
 							}else {
@@ -167,18 +167,18 @@ public class Application {
 							break;
 						case 11:
 							if(yesno("Koveti ot Panda?")){
-								game.GetMap().SetNumberOfPandas(2);
+								game.getMap().setNumberOfPandas(2);
 								moveAnimalToField(new Panda(), FieldType.EXIT, null, new Panda());
 							}
 							else{
-								game.GetMap().SetNumberOfPandas(1);
+								game.getMap().setNumberOfPandas(1);
 								moveAnimalToField(new Panda(), FieldType.EXIT, null, null);
 							}
 							break;
 						case 12:
 							ScaredPanda scaredpanda = new ScaredPanda();
 							if(yesno("Koveti ot Panda?")){
-								scaredpanda.SetFollower(new Panda());
+								scaredpanda.setFollower(new Panda());
 							}
 							thingTriggersOnAnimal(scaredpanda, ThingType.ARCADE);
 							break;
@@ -189,7 +189,7 @@ public class Application {
 							thingTriggersOnAnimal(new LazyPanda(), ThingType.FOTEL);
 							break;
 						case 15:
-							//TODO: Fotel empties
+							thingTriggersOnAnimal(new LazyPanda(), ThingType.FOTEL);
 							break;
 						case 16:
 							thingTriggersOnAnimal(new Panda(), ThingType.CABINET);
@@ -234,11 +234,11 @@ public class Application {
 		}
 
 		if(followerPanda != null){
-			animal.SetFollower(followerPanda);
-			followerPanda.SetFollowing(animal);
+			animal.setFollower(followerPanda);
+			followerPanda.setFollowing(animal);
 		}
 
-		animal.Move(newField);
+		animal.move(newField);
 		System.out.println(log);
 		log = "";
 	}
@@ -248,7 +248,7 @@ public class Application {
 		animal.setField(currentField);
 		Field newField = new Field();
 		newField.setThing(t);
-		animal.Move(newField);
+		animal.move(newField);
 		System.out.println(log);
 		log = "";
 	}
@@ -260,59 +260,66 @@ public class Application {
 
     	if(thingtype == ThingType.ARCADE){
 			Field thingField = new Field();
-			thingField.SetNeighbor(animalField);
+			thingField.setNeighbor(animalField);
 
     		Arcade arcade = new Arcade();
     		thingField.setThing(arcade);
-    		arcade.SetField(thingField);
-    		arcade.Jingle();
+			arcade.setField(thingField);
+			arcade.jingle();
 		}
     	else if(thingtype == ThingType.VENDINGMACHINE){
     		if(yesno("WeakField-en all a Panda?")){
     			WeakField wf = new WeakField();
 				Field vmField = new Field();
     			if(yesno("Hitpoint 0?")) {
-					wf.SetHitpoints(1);
+					wf.setHitpoints(1);
 				}
 
     			wf.setAnimal(animal);
     			animal.setField(wf);
-				vmField.SetNeighbor(wf);
+				vmField.setNeighbor(wf);
 				VendingMachine vmachine = new VendingMachine();
 				vmField.setThing(vmachine);
-				vmachine.SetField(vmField);
-				vmachine.Beep();
+				vmachine.setField(vmField);
+				vmachine.beep();
 			}
     		else{
 				Field thingField = new Field();
-				thingField.SetNeighbor(animalField);
+				thingField.setNeighbor(animalField);
 				VendingMachine vmachine = new VendingMachine();
 				thingField.setThing(vmachine);
-				vmachine.SetField(thingField);
-				vmachine.Beep();
+				vmachine.setField(thingField);
+				vmachine.beep();
 			}
 
 		}
     	else if(thingtype == ThingType.FOTEL){
 			Field thingField = new Field();
-			thingField.SetNeighbor(animalField);
+			thingField.setNeighbor(animalField);
 
 			Fotel fotel = new Fotel();
 			thingField.setThing(fotel);
-			fotel.SetField(thingField);
-			fotel.Step();
+			fotel.setField(thingField);
+			if (yesno("Sittingtime 0?")) {
+				fotel.setPanda((LazyPanda) animal);
+				fotel.setSitTime(1);
+				fotel.setBusy(true);
+				fotel.step();
+			} else {
+				fotel.step();
+			}
 		}
     	else if(thingtype == ThingType.CABINET){
 			Field neighborCabinetField = new Field();
 			Cabinet neighborCabinet = new Cabinet();
-			neighborCabinet.SetField(neighborCabinetField);
+			neighborCabinet.setField(neighborCabinetField);
 			neighborCabinetField.setThing(neighborCabinet);
 
 			Cabinet cabinet = new Cabinet();
-			cabinet.SetNeighborCabinet(neighborCabinet);
+			cabinet.setNeighborCabinet(neighborCabinet);
 			animalField.setThing(cabinet);
-			cabinet.SetField(animalField);
-			cabinet.Step();
+			cabinet.setField(animalField);
+			cabinet.step();
 		}
 
 		System.out.println(log);

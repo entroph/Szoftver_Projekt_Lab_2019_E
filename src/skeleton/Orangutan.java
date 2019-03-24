@@ -6,56 +6,56 @@ public class Orangutan extends Animal{
 
 	//In the finished application, there will be no need for this function here
 	//now this is only here, because we need to log "orangutan collidewith" or "panda collidewith"
-	public void CollideWith(Animal a) {
+	public void collideWith(Animal a) {
 		tabs++;
-		logger(toString() + ".CollideWith");
+		logger(toString() + ".collideWith");
 		tabs--;
-		a.Hit(this);
+		a.hit(this);
 	}
 
-	public void Hit(Orangutan o) {
+	public void hit(Orangutan o) {
 		tabs++;
-		logger(toString() + ".Hit (this is the other Orangutan)");
-		tabs--;
-	}
-
-	public void Hit(Panda p) {
-		tabs++;
-		logger(toString() + ".Hit (Nothing happens when the Panda tries to catch the Orangutan)");
+		logger(toString() + ".hit (this is the other Orangutan)");
 		tabs--;
 	}
 
-	public Animal GetFollower() {
+	public void hit(Panda p) {
 		tabs++;
-		logger(toString() + ".GetFollower");
+		logger(toString() + ".hit (Nothing happens when the Panda tries to catch the Orangutan)");
+		tabs--;
+	}
+
+	public Animal getFollower() {
+		tabs++;
+		logger(toString() + ".getFollower");
 		tabs--;
 		return follower;
 	}
 
-	public void SetFollower(Animal a) {
+	public void setFollower(Animal a) {
 		tabs++;
-		logger(toString() + ".SetFollower");
+		logger(toString() + ".setFollower");
 		tabs--;
 		this.follower = a;
 	}
 
-	public Field GetField() {
+	public Field getField() {
 		tabs++;
-		logger(toString() + ".GetField");
+		logger(toString() + ".getField");
 		tabs--;
 		return field;
 	}
 
-	public void Leave(){
+	public void leave() {
 		tabs++;
-		logger(toString() + ".Leave");
+		logger(toString() + ".leave");
 		tabs--;
 
 		if(follower != null)
-			follower.Follow(this);
+			follower.follow(this);
 
-		Entrance ent = game.GetEntrance();
-		ent.Accept(this);
+		Entrance ent = game.getEntrance();
+		ent.accept(this);
 	}
 
 	@Override

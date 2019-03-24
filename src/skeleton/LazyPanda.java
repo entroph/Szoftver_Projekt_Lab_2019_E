@@ -12,24 +12,28 @@ public class LazyPanda extends Panda{
 		super(cf);
 	}
 
-	public boolean Lazy(Fotel f) {
+	public boolean lazy(Fotel f) {
 		tabs++;
-		logger(toString() + ".Lazy");
-		sitting = true;
-		setField(f.GetField());
-		Release();
+		logger(toString() + ".lazy");
+		setSitting(true);
+		setField(f.getField());
+		release();
 		tabs--;
 		return true;
 	}
-	
-	public void UnLazy(Fotel f) {
+
+	public void unLazy(Fotel f) {
 		tabs++;
-		sitting = false;
-		logger(toString() + ".UnLazy");
+		setSitting(false);
+		logger(toString() + ".unLazy");
 		tabs--;
 	}
-	
-	public void Move() {
-		
+
+	public void move() {
+
+	}
+
+	public void setSitting(boolean value) {
+		sitting = value;
 	}
 }

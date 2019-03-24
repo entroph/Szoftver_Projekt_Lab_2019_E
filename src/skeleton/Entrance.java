@@ -4,9 +4,9 @@ import static skeleton.Application.*;
 
 public class Entrance extends Field{
 
-	public void Accept(Animal a) {
+    public void accept(Animal a) {
 		tabs++;
-		logger(toString() + ".Accept");
+        logger(toString() + ".accept");
 		tabs--;
 		this.setAnimal(a);
 		a.setField(this);

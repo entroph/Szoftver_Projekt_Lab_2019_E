@@ -5,28 +5,28 @@ import java.util.ArrayList;
 
 public class Arcade extends Thing{
 
-	public void Step() {
+    public void step() {
 		
 	}
-	
-	public void Jingle() {
-		tabs++;
-		logger(toString() + ".Jingle");
 
-		ArrayList<Field> neighs = this.GetField().getNeighbors();
+    public void jingle() {
+		tabs++;
+        logger(toString() + ".jingle");
+
+        ArrayList<Field> neighs = this.getField().getNeighbors();
 		if(neighs != null){
 			for(Field field : neighs) {
 				Animal tempAnimal = field.getAnimal();
 				if (tempAnimal != null)
-					tempAnimal.Scare();
+                    tempAnimal.scare();
 			}
 		}
 		tabs--;
 	}
-	
-	public boolean InteractWith(Animal a) {
+
+    public boolean interactWith(Animal a) {
 		tabs++;
-		logger(toString() + ".InteractWith");
+        logger(toString() + ".interactWith");
 		tabs--;
 		return false;
 	}

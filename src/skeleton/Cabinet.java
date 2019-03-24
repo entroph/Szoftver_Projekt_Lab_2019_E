@@ -5,41 +5,41 @@ import static skeleton.Application.*;
 public class Cabinet extends Thing{
 
 	private Cabinet neighborCabinet;
-	
-	public void Step() {
-		tabs++;
-		logger(toString()+".Step");
 
-		Field cabinetField = this.GetField();
+    public void step() {
+		tabs++;
+        logger(toString() + ".step");
+
+        Field cabinetField = this.getField();
 		Animal animalOnCabinet = cabinetField.getAnimal();
 
-		Field neighborCabinetField = neighborCabinet.GetField();
+        Field neighborCabinetField = neighborCabinet.getField();
 		Animal animalOnNeighborCabinet = neighborCabinetField.getAnimal();
 		if(animalOnNeighborCabinet == null){
-			neighborCabinet.Teleport(animalOnCabinet);
+            neighborCabinet.teleport(animalOnCabinet);
 		}
 		tabs--;
 	}
-	
-	public void Teleport(Animal a) {
+
+    public void teleport(Animal a) {
 		tabs++;
-		logger(toString()+".Teleport");
+        logger(toString() + ".teleport");
 		tabs--;
-		Field animalField = a.GetField();
-		this.field.Accept(a);
-		animalField.Remove(a);
+        Field animalField = a.getField();
+        this.field.accept(a);
+        animalField.remove(a);
 	}
-	
-	public boolean InteractWith(Animal a) {
+
+    public boolean interactWith(Animal a) {
 		tabs++;
-		logger(toString()+".InteractWith");
+        logger(toString() + ".interactWith");
 		tabs--;
 		return true;
 	}
 
-	public void SetNeighborCabinet(Cabinet nbcabinet){
+    public void setNeighborCabinet(Cabinet nbcabinet) {
 		tabs++;
-		logger(toString()+".SetNeighborCabinet");
+        logger(toString() + ".setNeighborCabinet");
 		tabs--;
 		this.neighborCabinet = nbcabinet;
 	}

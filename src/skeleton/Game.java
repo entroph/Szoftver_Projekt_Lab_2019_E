@@ -13,40 +13,40 @@ public class Game {
 		map = new Map();
 		points = 0;
 		entrance = new Entrance();
-		StartGame();
+		startGame();
 	}
 
-	public void StartGame() {
+	public void startGame() {
 		System.out.println("Game started");
 	}
-	
-	public void EndGame() {
+
+	public void endGame() {
 		tabs++;
-		logger(toString() + ".EndGame (Here is the end, but for the convenience of the testing, the application does not exits.)");
+		logger(toString() + ".endGame (Here is the end, but for the convenience of the testing, the application does not exits.)");
 		tabs--;
 	}
-	
-	public void IncreasePoints() {
+
+	public void increasePoints() {
 		tabs++;
-		logger(toString() + ".IncreasePoints");
+		logger(toString() + ".increasePoints");
 		tabs--;
 		points++;
-		if(map.PandasLeft() <= 0){
-			map.GameOver();
-			EndGame();
+		if (map.pandasLeft() <= 0) {
+			map.gameOver();
+			endGame();
 		}
 	}
-	
-	public Map GetMap() {
+
+	public Map getMap() {
 		tabs++;
-		logger(toString() + ".GetMap");
+		logger(toString() + ".getMap");
 		tabs--;
 		return map;
 	}
-	
-	public Entrance GetEntrance() {
+
+	public Entrance getEntrance() {
 		tabs++;
-		logger(toString() + ".GetEntrance");
+		logger(toString() + ".getEntrance");
 		tabs--;
 		return entrance;
 	}

@@ -38,83 +38,83 @@ public class Panda extends Animal{
 		tabs--;
 	}*/
 
-	public void CollideWith(Animal a) {
+	public void collideWith(Animal a) {
 		tabs++;
-		logger(toString() + ".CollideWith");
+		logger(toString() + ".collideWith");
 		tabs--;
-		a.Hit(this);
+		a.hit(this);
 	}
 
-	public void Hit(Orangutan o) {
+	public void hit(Orangutan o) {
 		tabs++;
-		logger(toString() + ".Hit");
+		logger(toString() + ".hit");
 		tabs--;
 
 		//Needed to check, because if its already guided by another Orangutan, then it can't be caught by the Orangutan
-		if(this.GetFollowing() != null)
+		if (this.getFollowing() != null)
 			return;
 
-		Panda follower = (Panda)o.GetFollower();
-		o.SetFollower(this);
-		this.SetFollowing(o);
+		Panda follower = (Panda) o.getFollower();
+		o.setFollower(this);
+		this.setFollowing(o);
 		if(follower != null){
-			this.SetFollower(follower);
-			follower.SetFollowing(this);
+			this.setFollower(follower);
+			follower.setFollowing(this);
 		}
-		o.Swap(this);
+		o.swap(this);
 	}
 
-	public void Hit(Panda p) {
+	public void hit(Panda p) {
 		tabs++;
-		logger(toString() + ".Hit (Nothing happens when a Panda tries to catch another Panda)");
+		logger(toString() + ".hit (Nothing happens when a Panda tries to catch another Panda)");
 		tabs--;
 	}
 
-	public void Leave(){
+	public void leave() {
 		tabs++;
-		logger(toString() + ".Leave");
+		logger(toString() + ".leave");
 		tabs--;
 
 		if(follower != null)
-			follower.Follow(this);
+			follower.follow(this);
 
-		Map map = game.GetMap();
-		map.DecreasePandas();
-		game.IncreasePoints();
+		Map map = game.getMap();
+		map.decreasePandas();
+		game.increasePoints();
 	}
-	
-	public void SetFollowing(Animal a) {
+
+	public void setFollowing(Animal a) {
 		tabs++;
-		logger(toString() + ".SetFollowing");
+		logger(toString() + ".setFollowing");
 		tabs--;
 		this.following = a;
 	}
-	
-	public Animal GetFollowing() {
+
+	public Animal getFollowing() {
 		return following;
 	}
 
-	public void SetFollower(Animal a) {
+	public void setFollower(Animal a) {
 		tabs++;
-		logger(toString() + ".SetFollower (Here the Panda (which previously followed the Orangutan or a Panda) starts to hold the newly arrived Panda's hand)");
+		logger(toString() + ".setFollower (Here the Panda (which previously followed the Orangutan or a Panda) starts to hold the newly arrived Panda's hand)");
 		tabs--;
 		this.follower = a;
 	}
 
-	public Animal GetFollower() {
+	public Animal getFollower() {
 		return follower;
 	}
 
-	public Field GetField() {
+	public Field getField() {
 		tabs++;
-		logger(toString() + ".GetField");
+		logger(toString() + ".getField");
 		tabs--;
 		return field;
 	}
 
-	public void Scare() {
+	public void scare() {
 		tabs++;
-		logger(toString() + ".Scare");
+		logger(toString() + ".scare");
 		tabs--;
 	}
 
