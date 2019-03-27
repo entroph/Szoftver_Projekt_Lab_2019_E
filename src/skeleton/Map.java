@@ -7,28 +7,28 @@ public class Map {
 
 	private ArrayList<Field> fields;
 	private int numberOfPandas;
-	
-	public void GameOver() {
+
+    public void gameOver() {
 		tabs++;
-		logger(toString() + ".GameOver");
+        logger(toString() + ".gameOver");
 		tabs--;
 	}
-	
-	public int PandasLeft() {
+
+    public int pandasLeft() {
 		tabs++;
-		logger(toString() + ".PandasLeft");
+        logger(toString() + ".pandasLeft");
 		tabs--;
 		return numberOfPandas;
 	}
-	
-	public void DecreasePandas() {
+
+    public void decreasePandas() {
 		tabs++;
-		logger(toString() + ".DecreasePandas");
+        logger(toString() + ".decreasePandas");
 		tabs--;
 		numberOfPandas--;
 	}
 
-	public void SetNumberOfPandas(int amount){
+    public void setNumberOfPandas(int amount) {
 		this.numberOfPandas = amount;
 	}
 

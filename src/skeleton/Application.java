@@ -22,10 +22,10 @@ public class Application {
 
     public static void main(String[] args) {
         game = new Game();
-        Menu();
+		menu();
 	}
 
-	private static void Menu(){
+	private static void menu() {
 		Scanner s = new Scanner(System.in);
 
 		while(true) {
@@ -49,13 +49,13 @@ public class Application {
 				input = Integer.parseInt(s.nextLine());
 					switch(input){
 						case 1:
-							moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, null, false);
+							moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, null, null);
 							break;
 						case 2:
-							if(yesno("Kovetik ot pandak?"))
-								moveAnimalToField(new Orangutan(), FieldType.WEAKFIELD, null, true);
-							else
-								moveAnimalToField(new Orangutan(), FieldType.WEAKFIELD, null, false);
+							if(yesno("Kovetik ot pandak?")) {
+                                moveAnimalToField(new Orangutan(), FieldType.WEAKFIELD, null, new Panda());
+                            }else
+								moveAnimalToField(new Orangutan(), FieldType.WEAKFIELD, null, null);
 							break;
 						case 3:
 							Cabinet cabinet = new Cabinet();
@@ -75,33 +75,33 @@ public class Application {
 							break;
 						case 7:
 							Orangutan orangutanOnField = new Orangutan();
-							moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, orangutanOnField, false);
+							moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, orangutanOnField, null);
 							break;
 						case 8:
 							if(yesno("Koveti az orangutant mar Panda?")) {
 								Panda pandaOnField = new Panda();
-								if(yesno("Kovet mar egy masik Orangutant a Panda, akit megprobalunk megfogni?"))
-									pandaOnField.SetFollowing(new Orangutan());
-								else
-									pandaOnField.SetFollowing(null);
-								moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, pandaOnField, true);
+								if(yesno("Kovet mar egy masik Orangutant a Panda, akit megprobalunk megfogni?")) {
+									pandaOnField.setFollowing(new Orangutan());
+                                }else {
+									pandaOnField.setFollowing(null);
+                                }
+								moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, pandaOnField, new Panda());
 							}
-							else
-								moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, null, false);
+							else {
+                                moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, null, null);
+                            }
 							break;
 						case 9:
 							if(yesno("Koveti az orangutant mar Panda?")) {
-								Panda pandaOnField = new Panda();
-
-								if(yesno("A pandasor tavozasa utan marad meg Panda a palyan?"))
-									game.GetMap().SetNumberOfPandas(20);
-								else
-									game.GetMap().SetNumberOfPandas(1);
-
-								moveAnimalToField(new Orangutan(), FieldType.EXIT, null, true);
-							}
-							else
-								moveAnimalToField(new Orangutan(), FieldType.EXIT, null, false);
+								if(yesno("A pandasor tavozasa utan marad meg Panda a palyan?")) {
+									game.getMap().setNumberOfPandas(20);
+                                }else {
+									game.getMap().setNumberOfPandas(1);
+                                }
+								moveAnimalToField(new Orangutan(), FieldType.EXIT, null, new Panda());
+							}else {
+                                moveAnimalToField(new Orangutan(), FieldType.EXIT, null, null);
+                            }
 							break;
 						case 10:
 							thingTriggersOnAnimal(new Orangutan(), ThingType.CABINET);
@@ -133,20 +133,19 @@ public class Application {
 					input = Integer.parseInt(s.nextLine());
 					switch(input){
 						case 1:
-							//PandaStepsOnEmptyField();
-							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, null, false);
+							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, null, null);
 							break;
 						case 2:
-							if(yesno("Kovetik ot pandak?"))
-								moveAnimalToField(new Panda(), FieldType.WEAKFIELD, null, true);
-							else
-								moveAnimalToField(new Panda(), FieldType.WEAKFIELD, null, false);
+							if(yesno("Kovetik ot pandak?")) {
+                                moveAnimalToField(new Panda(), FieldType.WEAKFIELD, null, new Panda());
+                            }else
+								moveAnimalToField(new Panda(), FieldType.WEAKFIELD, null, null);
 							break;
 						case 3:
-							moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, null, true);
+							moveAnimalToField(new Orangutan(), FieldType.EMPTYFIELD, null, new Panda());
 							break;
 						case 4:
-							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, null, true);
+							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, null, new Panda());
 							break;
 						case 5:
 							animalInteractsWithThing(new Panda(), new Cabinet());
@@ -161,37 +160,36 @@ public class Application {
 							animalInteractsWithThing(new Panda(), new Fotel());
 							break;
 						case 9:
-							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, new Orangutan(), false);
+							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, new Orangutan(), null);
 							break;
 						case 10:
-							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, new Panda(), false);
+							moveAnimalToField(new Panda(), FieldType.EMPTYFIELD, new Panda(), null);
 							break;
 						case 11:
 							if(yesno("Koveti ot Panda?")){
-								game.GetMap().SetNumberOfPandas(2);
-								moveAnimalToField(new Panda(), FieldType.EXIT, null, true);
+								game.getMap().setNumberOfPandas(2);
+								moveAnimalToField(new Panda(), FieldType.EXIT, null, new Panda());
 							}
 							else{
-								game.GetMap().SetNumberOfPandas(1);
-								moveAnimalToField(new Panda(), FieldType.EXIT, null, false);
+								game.getMap().setNumberOfPandas(1);
+								moveAnimalToField(new Panda(), FieldType.EXIT, null, null);
 							}
 							break;
 						case 12:
 							ScaredPanda scaredpanda = new ScaredPanda();
 							if(yesno("Koveti ot Panda?")){
-								scaredpanda.SetFollower(new Panda());
+								scaredpanda.setFollower(new Panda());
 							}
 							thingTriggersOnAnimal(scaredpanda, ThingType.ARCADE);
 							break;
 						case 13:
-							JumpingPanda jumpingPanda = new JumpingPanda();
-							thingTriggersOnAnimal(jumpingPanda, ThingType.VENDINGMACHINE);
+							thingTriggersOnAnimal(new JumpingPanda(), ThingType.VENDINGMACHINE);
 							break;
 						case 14:
-							//TODO: Fotel steps
+							thingTriggersOnAnimal(new LazyPanda(), ThingType.FOTEL);
 							break;
 						case 15:
-							//TODO: Fotel empties
+							thingTriggersOnAnimal(new LazyPanda(), ThingType.FOTEL);
 							break;
 						case 16:
 							thingTriggersOnAnimal(new Panda(), ThingType.CABINET);
@@ -218,7 +216,7 @@ public class Application {
 
 	//Mate
 
-	public static void moveAnimalToField(Animal animal, FieldType fieldtype, Animal animalOnField, boolean hasFollowerPanda){
+	public static void moveAnimalToField(Animal animal, FieldType fieldtype, Animal animalOnField, Panda followerPanda){
 		Field currentField = new Field();
 		animal.setField(currentField);
 		Field newField;
@@ -235,13 +233,12 @@ public class Application {
 			newField.setAnimal(animalOnField);
 		}
 
-		if(hasFollowerPanda){
-			Panda followerPanda = new Panda();
-			animal.SetFollower(followerPanda);
-			followerPanda.SetFollowing(animal);
+		if(followerPanda != null){
+			animal.setFollower(followerPanda);
+			followerPanda.setFollowing(animal);
 		}
 
-		animal.Move(newField);
+		animal.move(newField);
 		System.out.println(log);
 		log = "";
 	}
@@ -251,7 +248,7 @@ public class Application {
 		animal.setField(currentField);
 		Field newField = new Field();
 		newField.setThing(t);
-		animal.Move(newField);
+		animal.move(newField);
 		System.out.println(log);
 		log = "";
 	}
@@ -263,56 +260,66 @@ public class Application {
 
     	if(thingtype == ThingType.ARCADE){
 			Field thingField = new Field();
-			thingField.SetNeighbor(animalField);
+			thingField.setNeighbor(animalField);
 
     		Arcade arcade = new Arcade();
     		thingField.setThing(arcade);
-    		arcade.SetField(thingField);
-    		arcade.Jingle();
+			arcade.setField(thingField);
+			arcade.jingle();
 		}
     	else if(thingtype == ThingType.VENDINGMACHINE){
     		if(yesno("WeakField-en all a Panda?")){
-    			WeakField weakThingField = new WeakField();
+    			WeakField wf = new WeakField();
+				Field vmField = new Field();
+    			if(yesno("Hitpoint 0?")) {
+					wf.setHitpoints(1);
+				}
 
-    			if(yesno("Hitpoint 0?"))
-    				weakThingField.SetHitpoints(0);
-
-				weakThingField.SetNeighbor(animalField);
+    			wf.setAnimal(animal);
+    			animal.setField(wf);
+				vmField.setNeighbor(wf);
 				VendingMachine vmachine = new VendingMachine();
-				weakThingField.setThing(vmachine);
-				vmachine.SetField(weakThingField);
-				vmachine.Beep();
+				vmField.setThing(vmachine);
+				vmachine.setField(vmField);
+				vmachine.beep();
 			}
     		else{
 				Field thingField = new Field();
-				thingField.SetNeighbor(animalField);
+				thingField.setNeighbor(animalField);
 				VendingMachine vmachine = new VendingMachine();
 				thingField.setThing(vmachine);
-				vmachine.SetField(thingField);
-				vmachine.Beep();
+				vmachine.setField(thingField);
+				vmachine.beep();
 			}
 
 		}
     	else if(thingtype == ThingType.FOTEL){
 			Field thingField = new Field();
-			thingField.SetNeighbor(animalField);
+			thingField.setNeighbor(animalField);
 
 			Fotel fotel = new Fotel();
 			thingField.setThing(fotel);
-			fotel.SetField(thingField);
-			fotel.Step();
+			fotel.setField(thingField);
+			if (yesno("Sittingtime 0?")) {
+				fotel.setPanda((LazyPanda) animal);
+				fotel.setSitTime(1);
+				fotel.setBusy(true);
+				fotel.step();
+			} else {
+				fotel.step();
+			}
 		}
     	else if(thingtype == ThingType.CABINET){
 			Field neighborCabinetField = new Field();
 			Cabinet neighborCabinet = new Cabinet();
-			neighborCabinet.SetField(neighborCabinetField);
+			neighborCabinet.setField(neighborCabinetField);
 			neighborCabinetField.setThing(neighborCabinet);
 
 			Cabinet cabinet = new Cabinet();
-			cabinet.SetNeighborCabinet(neighborCabinet);
+			cabinet.setNeighborCabinet(neighborCabinet);
 			animalField.setThing(cabinet);
-			cabinet.SetField(animalField);
-			cabinet.Step();
+			cabinet.setField(animalField);
+			cabinet.step();
 		}
 
 		System.out.println(log);

@@ -15,47 +15,55 @@ public class Fotel extends Thing{
 		busy = false;
 		sittingPanda = null;
 	}
-	
-	public void Step() {
+
+
+    public void step() {
 		tabs++;
-		logger(toString() + ".Step");
-		//tabs--;
-
-		ArrayList<Field> neighs = this.GetField().getNeighbors();
-		if(neighs != null){
-			for(Field field : neighs) {
-				Animal tempAnimal = field.getAnimal();
-				if (tempAnimal != null) {
-					tempAnimal.Lazy(this);
-					//TODO: Itt a gond az, hogy a tempAnimal az Animal típus és biztonságosan nem is lehet castolni LazyPandává
-					//erre kell valami megoldás, mert most Animal-okon hívogatjuk a Lazy-t, de az első megtalált Animalnál
-					//meg is áll, függetlenül attól, hogy az Orangutan-e vagy ScaredPanda, vagy ha szerencsés a rendszer,
-					//akkor pont LazyPanda. A Lazy függvénynek boolean visszatérés kell, hogy sikerült-e és csak is a LazyPanda
-					//térhet vissza true-val.
-
-
-					break; //Only one panda can sit into a Fotel, so the first found one sits down to it
-					       // and the Fotel has no effect on the rest of them even if there are more pandas
+        logger(toString() + ".step");
+		if(!busy) {
+            ArrayList<Field> neighs = this.getField().getNeighbors();
+			if (neighs != null) {
+				for (Field field : neighs) {
+					Animal tempAnimal = field.getAnimal();
+					if (tempAnimal != null) {
+                        if (tempAnimal.lazy(this)) {
+							break;
+						}
+						//Only one panda can sit into a Fotel, so the first one sits down in it
+						// and the Fotel has no effect on the rest of them even if there are more pandas
+					}
 				}
 			}
+		}else{
+			sitTime--;
+			if(sitTime == 0){
+                empty();
+			}
 		}
-	}
-	
-	public void Empty() {
-		
-	}
-	
-	public void SetPanda(LazyPanda p) {
-		
-	}
-	
-	public void RemovePanda(LazyPanda p) {
-		
+		tabs--;
 	}
 
-	public boolean InteractWith(Animal a) {
+    public void empty() {
+        sittingPanda.unLazy(this);
+        setBusy(false);
+        setSitTime(5);
+	}
+
+    public void setPanda(LazyPanda p) {
+		sittingPanda = p;
+	}
+
+    public void setSitTime(int amount) {
+        sitTime = amount;
+    }
+
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
+
+    public boolean interactWith(Animal a) {
 		tabs++;
-		logger(toString() + ".InteractWith");
+        logger(toString() + ".interactWith");
 		tabs--;
 		return false;
 	}

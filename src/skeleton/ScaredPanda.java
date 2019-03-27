@@ -4,15 +4,15 @@ import static skeleton.Application.*;
 
 public class ScaredPanda extends Panda{
 
-	public void Scare() {
+	public void scare() {
 		tabs++;
-		logger(toString() + ".Scare");
+		logger(toString() + ".scare");
 		tabs--;
 
-		Panda follower = (Panda)this.GetFollower();
+		Panda follower = (Panda) this.getFollower();
 		while(follower != null){
-			follower.SetFollowing(null);
-			follower = (Panda)follower.GetFollower();
+			follower.setFollowing(null);
+			follower = (Panda) follower.getFollower();
 		}
 	}
 

@@ -2,14 +2,13 @@ package skeleton;
 
 import static skeleton.Application.*;
 
-public class JumpingPanda extends Panda{
+public class JumpingPanda extends Panda {
 
-	public void Jump() {
-		tabs++;
-		logger(toString() + ".Jump");
-		tabs--;
+    public void Jump() {
+        tabs++;
+        logger(toString() + ".jump");
+        tabs--;
 
-		this.GetField().DecreaseHitpoints(5); //TODO: Itt az a gond, hogy a GetField egy Field-et ad vissza, függetlenül, hogy az
-													   //eredendően WeakField vagy Field.
-	}
+        this.getField().decreaseHitpoints(5);
+    }
 }

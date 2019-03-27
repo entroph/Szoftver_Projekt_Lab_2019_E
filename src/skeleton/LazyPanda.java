@@ -1,22 +1,39 @@
 package skeleton;
 
+import static skeleton.Application.*;
+
 public class LazyPanda extends Panda{
 
 	private boolean sitting;
+
+	public LazyPanda(){}
 
 	public LazyPanda(Field cf) {
 		super(cf);
 	}
 
-	public void Lazy(Fotel f) {
-		
+	public boolean lazy(Fotel f) {
+		tabs++;
+		logger(toString() + ".lazy");
+		setSitting(true);
+		setField(f.getField());
+		release();
+		tabs--;
+		return true;
 	}
-	
-	public void UnLazy(Fotel f) {
-		
+
+	public void unLazy(Fotel f) {
+		tabs++;
+		setSitting(false);
+		logger(toString() + ".unLazy");
+		tabs--;
 	}
-	
-	public void Move() {
-		
+
+	public void move() {
+
+	}
+
+	public void setSitting(boolean value) {
+		sitting = value;
 	}
 }

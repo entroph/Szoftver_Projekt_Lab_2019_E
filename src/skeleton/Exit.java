@@ -4,12 +4,12 @@ import static skeleton.Application.*;
 
 public class Exit extends Field {
 
-	public void Accept(Animal a) {
+    public void accept(Animal a) {
 		tabs++;
-		logger(toString() + ".Accept");
+        logger(toString() + ".accept");
 		tabs--;
 		a.setField(this);
-		a.Leave();
+        a.leave();
 	}
 
 	@Override

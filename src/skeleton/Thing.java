@@ -5,21 +5,20 @@ import static skeleton.Application.*;
 public class Thing implements Steppable{
 
 	protected Field field;
-	
-	public void Step() {
+
+	public void step() {
 		
 	}
-	
-	public boolean InteractWith(Animal a) {
+
+	public boolean interactWith(Animal a) {
 		return false;
-		//return yesno("Lehet-e interakcióba lépni ezzel a tárggyal?");
 	}
 
-	public void SetField(Field f){
+	public void setField(Field f) {
 		this.field = f;
 	}
 
-	public Field GetField(){
+	public Field getField() {
 		return this.field;
 	}
 
