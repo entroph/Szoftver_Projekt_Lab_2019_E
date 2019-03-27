@@ -1,5 +1,7 @@
 package skeleton;
 
+import static skeleton.Application.*;
+
 public class Game {
 
 	private Map map;
@@ -11,29 +13,46 @@ public class Game {
 		map = new Map();
 		points = 0;
 		entrance = new Entrance();
-		StartGame();
+		startGame();
 	}
 
-	public void StartGame() {
+	public void startGame() {
 		System.out.println("Game started");
 	}
-	
-	public void EndGame() {
-		System.out.println("Game ended");
+
+	public void endGame() {
+		tabs++;
+		logger(toString() + ".endGame (Here is the end, but for the convenience of the testing, the application does not exits.)");
+		tabs--;
 	}
-	
-	public void IncreasePoints() {
+
+	public void increasePoints() {
+		tabs++;
+		logger(toString() + ".increasePoints");
+		tabs--;
 		points++;
-		System.out.println("Points increased");
+		if (map.pandasLeft() <= 0) {
+			map.gameOver();
+			endGame();
+		}
 	}
-	
-	public Map GetMap() {
-		System.out.println("GetMap()");
+
+	public Map getMap() {
+		tabs++;
+		logger(toString() + ".getMap");
+		tabs--;
 		return map;
 	}
-	
-	public Entrance GetEntrance() {
-		System.out.println("GetEntrance()");
+
+	public Entrance getEntrance() {
+		tabs++;
+		logger(toString() + ".getEntrance");
+		tabs--;
 		return entrance;
+	}
+
+	@Override
+	public String toString() {
+		return "Game";
 	}
 }

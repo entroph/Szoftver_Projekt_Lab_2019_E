@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public class Timer {
 
 	private ArrayList<Steppable> steppable;
-	
-	public void Tick() {
+
+	public void tick() {
 		
 	}
-	
-	public void AddSteppable(Steppable s) {
+
+	public void addSteppable(Steppable s) {
 		
 	}
-	
-	public void RemoveSteppable(Steppable s) {
+
+	public void removeSteppable(Steppable s) {
 		
 	}
 	

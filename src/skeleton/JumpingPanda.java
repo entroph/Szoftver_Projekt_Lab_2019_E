@@ -1,8 +1,14 @@
 package skeleton;
 
-public class JumpingPanda extends Panda{
+import static skeleton.Application.*;
 
-	public void Jump() {
-		
-	}
+public class JumpingPanda extends Panda {
+
+    public void Jump() {
+        tabs++;
+        logger(toString() + ".jump");
+        tabs--;
+
+        this.getField().decreaseHitpoints(5);
+    }
 }

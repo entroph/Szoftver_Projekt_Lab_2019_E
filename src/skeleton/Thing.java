@@ -1,14 +1,29 @@
 package skeleton;
 
+import static skeleton.Application.*;
+
 public class Thing implements Steppable{
 
-	private Field field;
-	
-	public void Step() {
+	protected Field field;
+
+	public void step() {
 		
 	}
-	
-	public boolean InteractWith(Animal a) {
+
+	public boolean interactWith(Animal a) {
 		return false;
+	}
+
+	public void setField(Field f) {
+		this.field = f;
+	}
+
+	public Field getField() {
+		return this.field;
+	}
+
+	@Override
+	public String toString() {
+		return "Thing";
 	}
 }
