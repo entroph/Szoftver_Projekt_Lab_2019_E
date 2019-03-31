@@ -2,12 +2,18 @@ package skeleton;
 
 import java.util.Scanner;
 
+/**
+ * Csempe típusok enumerációja
+ */
 enum FieldType{
 	EMPTYFIELD,
 	WEAKFIELD,
 	EXIT
 }
 
+/**
+ * Tárgyak
+ */
 enum ThingType{
 	ARCADE,
 	VENDINGMACHINE,
@@ -15,6 +21,9 @@ enum ThingType{
 	CABINET
 }
 
+/**
+ * Alkalmazás osztály, a console-on vezeti a felhasználót
+ */
 public class Application {
 	public static String log = "";
 	public static int tabs = -1;
@@ -203,6 +212,12 @@ public class Application {
 			}
 		}
 	}
+
+	/**
+	 * Igaz-Hamis kérdést kezelő fv.
+	 * @param question
+	 * @return
+	 */
 	public static boolean yesno(String question){
         System.out.println(question + "\r\n" + "I/N");
         Scanner sc = new Scanner(System.in);
@@ -214,8 +229,14 @@ public class Application {
 		log += method + "\r\n";
 	}
 
-	//Mate
 
+	/**
+	 * Ellenőrzi a paraméterként megkapott mezőt és tartalmát, majd meghívja a Move-ját az adott állatnak.
+	 * @param animal
+	 * @param fieldtype
+	 * @param animalOnField
+	 * @param followerPanda
+	 */
 	public static void moveAnimalToField(Animal animal, FieldType fieldtype, Animal animalOnField, Panda followerPanda){
 		Field currentField = new Field();
 		animal.setField(currentField);
@@ -243,6 +264,11 @@ public class Application {
 		log = "";
 	}
 
+	/**
+	 * A paraméterként kapott állatot és tárgyat ütközteti.
+	 * @param animal
+	 * @param t
+	 */
 	public static void animalInteractsWithThing(Animal animal, Thing t){
 		Field currentField = new Field();
 		animal.setField(currentField);
@@ -253,6 +279,11 @@ public class Application {
 		log = "";
 	}
 
+	/**
+	 * Interakció a paraméterként kapott tárgytípusokkal.
+	 * @param animal
+	 * @param thingtype
+	 */
 	public static void thingTriggersOnAnimal(Animal animal, ThingType thingtype){
 		Field animalField = new Field();
 		animalField.setAnimal(animal);

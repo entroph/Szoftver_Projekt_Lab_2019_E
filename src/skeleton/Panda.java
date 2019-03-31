@@ -2,12 +2,22 @@ package skeleton;
 
 import static skeleton.Application.*;
 
+/**
+ * A panda osztály megvalósítása.
+ */
 public class Panda extends Animal{
-
+	//A sorban előtte menő állat.
 	Animal following;
 
+	/**
+	 * Konstruktor.
+	 */
 	public Panda(){}
 
+	/**
+	 * Konstruktor, rárakja a Field-re.
+	 * @param cf Field.
+	 */
 	public Panda(Field cf)
 	{
 		setField(cf);
@@ -38,6 +48,10 @@ public class Panda extends Animal{
 		tabs--;
 	}*/
 
+	/**
+	 * Ütközik a paraméterként kapott állattal.
+	 * @param a ütközés alanya.
+	 */
 	public void collideWith(Animal a) {
 		tabs++;
 		logger(toString() + ".collideWith");
@@ -45,6 +59,10 @@ public class Panda extends Animal{
 		a.hit(this);
 	}
 
+	/**
+	 * Eltalál egy orángutánt, és ha még nem követ senkit, helyet cserélnek és beáll a sorába.
+	 * @param o
+	 */
 	public void hit(Orangutan o) {
 		tabs++;
 		logger(toString() + ".hit");
@@ -64,12 +82,19 @@ public class Panda extends Animal{
 		o.swap(this);
 	}
 
+	/**
+	 * Eltalál egy pandát, semmi nem történik.
+	 * @param p
+	 */
 	public void hit(Panda p) {
 		tabs++;
 		logger(toString() + ".hit (Nothing happens when a Panda tries to catch another Panda)");
 		tabs--;
 	}
 
+	/**
+	 * Kijárat mezőn áll, meghívja az őt eltávolító függvényeket.
+	 */
 	public void leave() {
 		tabs++;
 		logger(toString() + ".leave");
@@ -83,6 +108,10 @@ public class Panda extends Animal{
 		game.increasePoints();
 	}
 
+	/**
+	 * Beállítja a paraméterként kapott állatot követettjének.
+	 * @param a
+	 */
 	public void setFollowing(Animal a) {
 		tabs++;
 		logger(toString() + ".setFollowing");
@@ -90,10 +119,18 @@ public class Panda extends Animal{
 		this.following = a;
 	}
 
+	/**
+	 * Visszatér a követettjével.
+	 * @return
+	 */
 	public Animal getFollowing() {
 		return following;
 	}
 
+	/**
+	 * Beállítja az őt követő állatot.
+	 * @param a
+	 */
 	public void setFollower(Animal a) {
 		tabs++;
 		logger(toString() + ".setFollower (Here the Panda (which previously followed the Orangutan or a Panda) starts to hold the newly arrived Panda's hand)");
@@ -101,10 +138,18 @@ public class Panda extends Animal{
 		this.follower = a;
 	}
 
+	/**
+	 * Visszatér a követőjével.
+	 * @return
+	 */
 	public Animal getFollower() {
 		return follower;
 	}
 
+	/**
+	 * Visszatér azzal a mezővel amelyiken áll.
+	 * @return
+	 */
 	public Field getField() {
 		tabs++;
 		logger(toString() + ".getField");
@@ -112,12 +157,19 @@ public class Panda extends Animal{
 		return field;
 	}
 
+	/**
+	 * Ha megijed, elengedi a mögötte állók kezét, törli a follower-t.
+	 */
 	public void scare() {
 		tabs++;
 		logger(toString() + ".scare");
 		tabs--;
 	}
 
+	/**
+	 * ToString override.
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return "Panda";

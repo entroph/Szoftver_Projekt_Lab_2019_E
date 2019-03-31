@@ -10,6 +10,9 @@ public class VendingMachine extends Thing{
 		
 	}
 
+	/**
+	 * Sípol egyet, meghívja a szomszédos mezőkre, és ha van rajtuk állat, azokon a Jump-ot.
+	 */
 	public void beep() {
 		tabs++;
 		logger(toString() + ".beep");
@@ -25,6 +28,11 @@ public class VendingMachine extends Thing{
 		tabs--;
 	}
 
+	/**
+	 * A Csokiautomata a paraméterként kapott állattal interakcióba lép, ugrik egyet a panda
+	 * @param a
+	 * @return
+	 */
 	public boolean interactWith(Animal a) {
 		tabs++;
 		logger(toString() + ".interactWith");
@@ -32,6 +40,10 @@ public class VendingMachine extends Thing{
 		return false;
 	}
 
+	/**
+	 * ToString override.
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return "VendingMachine";

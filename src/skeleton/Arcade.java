@@ -9,6 +9,9 @@ public class Arcade extends Thing{
 		
 	}
 
+	/**
+	 * Lekéri a szomszédait, amin ha áll állat, meghívja rá az őt megijesztő függvényt.
+	 */
     public void jingle() {
 		tabs++;
         logger(toString() + ".jingle");
@@ -24,6 +27,11 @@ public class Arcade extends Thing{
 		tabs--;
 	}
 
+	/**
+	 * Megnézi, hogy a paraméterként kapott állat tud-e interakcióba lépni.
+	 * @param a
+	 * @return
+	 */
     public boolean interactWith(Animal a) {
 		tabs++;
         logger(toString() + ".interactWith");
@@ -31,6 +39,10 @@ public class Arcade extends Thing{
 		return false;
 	}
 
+	/**
+	 * ToString override.
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return "Arcade";

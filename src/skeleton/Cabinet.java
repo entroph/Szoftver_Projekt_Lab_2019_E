@@ -2,10 +2,19 @@ package skeleton;
 
 import static skeleton.Application.*;
 
+/**
+ * Szekrény osztály, Thing leszármazott. Állatot teleportál.
+ */
 public class Cabinet extends Thing{
 
+	/**
+	 * Szomszédos szekrény.
+	 */
 	private Cabinet neighborCabinet;
 
+	/**
+	 * Továbbadja a belemenő állatokat.
+	 */
     public void step() {
 		tabs++;
         logger(toString() + ".step");
@@ -21,6 +30,10 @@ public class Cabinet extends Thing{
 		tabs--;
 	}
 
+	/**
+	 * Mint egy Move, csak a szekrény által összekötött mezők között.
+	 * @param a
+	 */
     public void teleport(Animal a) {
 		tabs++;
         logger(toString() + ".teleport");
@@ -30,6 +43,11 @@ public class Cabinet extends Thing{
         animalField.remove(a);
 	}
 
+	/**
+	 * A szekrény a paraméterként kapott állattal interakcióba lép, átteleportálja.
+	 * @param a
+	 * @return
+	 */
     public boolean interactWith(Animal a) {
 		tabs++;
         logger(toString() + ".interactWith");
@@ -37,6 +55,10 @@ public class Cabinet extends Thing{
 		return true;
 	}
 
+	/**
+	 * Beállítja a szomszédos szekrényt.
+	 * @param nbcabinet
+	 */
     public void setNeighborCabinet(Cabinet nbcabinet) {
 		tabs++;
         logger(toString() + ".setNeighborCabinet");
