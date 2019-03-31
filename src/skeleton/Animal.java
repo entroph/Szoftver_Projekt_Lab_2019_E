@@ -3,10 +3,19 @@ package skeleton;
 import static skeleton.Application.*;
 
 public class Animal {
-
+    /**
+     * Az orángutánt vagy pandát követő állatot tárolja.
+     */
     Animal follower;
+    /**
+     * Az a mező, amelyiken az állat áll.
+     */
     Field field;
 
+    /**
+     * Az állat mozgatása a paraméterként kapott mezőre.
+     * @param newField
+     */
     public void move(Field newField) {
         tabs++;
         logger(toString() + ".move");
@@ -33,10 +42,16 @@ public class Animal {
         tabs--;
     }
 
+    /**
+     * További függvényeket hív meg.
+     */
     public void step() {
 
     }
 
+    /**
+     * Állat halála.
+     */
     public void die() {
         tabs++;
         logger(toString() + ".die");
@@ -44,6 +59,10 @@ public class Animal {
         tabs--;
     }
 
+    /**
+     * A megfelelő panda bele fog ülni a fotelba, a többi állat nem reagál.
+     * @param f
+     */
     public boolean lazy(Fotel f) {
         tabs++;
         logger(toString() + ".lazy");
@@ -51,18 +70,32 @@ public class Animal {
         return false;
     }
 
+    /**
+     * A fotelban ülő állat kiszáll, a többi állat nem reagál.
+     * @param f
+     */
     public void unLazy(Fotel f) {
 
     }
 
+    /**
+     * Az ugró panda ugrik, a többi állat nem reagál.
+     */
     public void jump() {
 
     }
 
+    /**
+     * Az ijedős panda megijed, a többi állat nem reagál.
+     */
     public void scare() {
 
     }
 
+    /**
+     * Két állat helyet cserél.
+     * @param a
+     */
     public void swap(Animal a) {
         tabs++;
         logger(toString() + ".swap");
@@ -74,6 +107,10 @@ public class Animal {
         tabs--;
     }
 
+    /**
+     * Az aktuális mejő elkérése.
+     * @return aktuális mező.
+     */
     public Field getField() {
         return field;
     }
@@ -82,6 +119,10 @@ public class Animal {
         field = f;
     }
 
+    /**
+     * Sorban álló állat követi a paraméterként kapottat.
+     * @param a előtte álló állat.
+     */
     public void follow(Animal a) {
         tabs++;
         logger(toString() + ".follow");
@@ -95,14 +136,26 @@ public class Animal {
 
     }
 
+    /**
+     * Ütközik a paraméterként kapott állattal.
+     * @param a ütközés alanya.
+     */
     public void collideWith(Animal a) {
 
     }
 
+    /**
+     * Orángutánnal ütközés, virtuális.
+     * @param o
+     */
     public void hit(Orangutan o) {
 
     }
 
+    /**
+     * Pandával ütközés.
+     * @param p
+     */
     public void hit(Panda p) {
 
     }
@@ -113,10 +166,18 @@ public class Animal {
         tabs--;
     }
 
+    /**
+     * Követő beállítása.
+     * @param a
+     */
     public void setFollower(Animal a) {
 
     }
 
+    /**
+     * Követő visszaadása.
+     * @return
+     */
     public Animal getFollower() {
         return follower;
     }

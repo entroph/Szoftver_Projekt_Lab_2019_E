@@ -2,10 +2,18 @@ package skeleton;
 
 import static skeleton.Application.*;
 
+/**
+ * Az összetörhető mező osztálya.
+ */
 public class WeakField extends Field {
 
+	//Életpontjai
 	private int hitpoints = 20;
 
+	/**
+	 * Paraméterként kapott állatot elfogadja a mezőn.
+	 * @param a
+	 */
 	public void accept(Animal a) {
 		tabs++;
 		logger(toString() + ".accept");
@@ -19,6 +27,9 @@ public class WeakField extends Field {
 		tabs--;
 	}
 
+	/**
+	 * Törli az állatot ami alatt elfogyott a Hitpoint-ja, és felszabadítja a mögötte lévő sort.
+	 */
 	public void delete() {
 		tabs++;
 		logger(toString() + ".delete");
@@ -34,6 +45,10 @@ public class WeakField extends Field {
 		tabs--;
 	}
 
+	/**
+	 * Csökkenti a mező életpontjait.
+	 * @param amount
+	 */
 	public void decreaseHitpoints(int amount) {
 		tabs++;
 		logger(toString() + ".decreaseHitpoints()");
@@ -45,10 +60,18 @@ public class WeakField extends Field {
 		tabs--;
 	}
 
+	/**
+	 * Beállítja a paraméterként kapott értékre a mező életpontjait.
+	 * @param amount
+	 */
 	public void setHitpoints(int amount) {
 		this.hitpoints = amount;
 	}
 
+	/**
+	 * ToString override.
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return "weakField";

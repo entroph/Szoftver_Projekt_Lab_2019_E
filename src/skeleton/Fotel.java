@@ -6,10 +6,16 @@ import static skeleton.Application.*;
 
 public class Fotel extends Thing{
 
+	//Ennyi ideig ül a fotelben a panda
 	private int sitTime;
+	//Ül-e a fotelban panda
 	private boolean busy;
+	//A fotelban ülő panda
 	private LazyPanda sittingPanda;
 
+	/**
+	 * Konstruktor, beállítja a default értékeket.
+	 */
 	public Fotel(){
 		sitTime = 0;
 		busy = false;
@@ -17,6 +23,9 @@ public class Fotel extends Thing{
 	}
 
 
+	/**
+	 * Meghívja a szomszédokra a Lazy fv-t, ha van lusta az megpróbál leülni.
+	 */
     public void step() {
 		tabs++;
         logger(toString() + ".step");
@@ -43,12 +52,19 @@ public class Fotel extends Thing{
 		tabs--;
 	}
 
+	/**
+	 * Fotelből kiszáll a panda.
+	 */
     public void empty() {
         sittingPanda.unLazy(this);
         setBusy(false);
         setSitTime(5);
 	}
 
+	/**
+	 * Beállítja a fotelben ülő pandát.
+	 * @param p
+	 */
     public void setPanda(LazyPanda p) {
 		sittingPanda = p;
 	}
@@ -61,6 +77,11 @@ public class Fotel extends Thing{
         this.busy = busy;
     }
 
+	/**
+	 * A fotel a paraméterként kapott állattal interakcióba lép, az állat beleül.
+	 * @param a
+	 * @return
+	 */
     public boolean interactWith(Animal a) {
 		tabs++;
         logger(toString() + ".interactWith");
@@ -68,6 +89,10 @@ public class Fotel extends Thing{
 		return false;
 	}
 
+	/**
+	 * ToString override.
+	 * @return
+	 */
 	@Override
 	public String toString() {
 		return "Fotel";
