@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a1211496-61a6-47f9-9c02-5ea1b3788f7d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Arcade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cabinet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entrance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fotel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JumpingPanda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LazyPanda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Orangutan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Panda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScaredPanda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Steppable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Thing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Timer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VendingMachine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WeakField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Arcade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Arcade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Cabinet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Cabinet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Entrance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Entrance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Fotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Fotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/JumpingPanda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/JumpingPanda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/LazyPanda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/LazyPanda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Orangutan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Orangutan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Panda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Panda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/ScaredPanda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/ScaredPanda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Steppable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Steppable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Thing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Thing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/VendingMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/VendingMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/skeleton/WeakField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/skeleton/WeakField.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/skeleton/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skeleton/Map.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3912#3913#0" expanded="true" />
+                <element signature="e#3949#3950#0" expanded="true" />
+                <element signature="e#4035#4036#0" expanded="true" />
+                <element signature="e#4067#4068#0" expanded="true" />
+                <element signature="e#4222#4223#0" expanded="true" />
+                <element signature="e#4266#4267#0" expanded="true" />
+                <element signature="e#4369#4370#0" expanded="true" />
+                <element signature="e#4397#4398#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skeleton/Field.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/skeleton/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/skeleton/Application.java" />
+        <option value="$PROJECT_DIR$/src/skeleton/Game.java" />
+        <option value="$PROJECT_DIR$/src/skeleton/Map.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Projlab_16_E_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projlab_16_E_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="skeleton" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projlab_16_E_2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="skeleton" type="462c0819:PsiDirectoryNode" />
+              <item name="Application.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555674819209" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application" />
+      <module name="Projlab_16_E_2019" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1211496-61a6-47f9-9c02-5ea1b3788f7d" name="Default Changelist" comment="" />
+      <created>1555670630783</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555670630783</updated>
+      <workItem from="1555670632254" duration="4176000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4176000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1696" height="1066" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290461" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39978564" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/Scanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="1650" selection-start-line="1650" selection-end-line="1650" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skeleton/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skeleton/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="19" column="36" lean-forward="true" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3912#3913#0" expanded="true" />
+            <element signature="e#3949#3950#0" expanded="true" />
+            <element signature="e#4035#4036#0" expanded="true" />
+            <element signature="e#4067#4068#0" expanded="true" />
+            <element signature="e#4222#4223#0" expanded="true" />
+            <element signature="e#4266#4267#0" expanded="true" />
+            <element signature="e#4369#4370#0" expanded="true" />
+            <element signature="e#4397#4398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skeleton/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/skeleton/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

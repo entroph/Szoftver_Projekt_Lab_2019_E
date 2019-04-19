@@ -1,5 +1,3 @@
-package skeleton;
-
 import java.util.ArrayList;
 
 /**
@@ -7,30 +5,30 @@ import java.util.ArrayList;
  */
 public class Timer {
 
-	//Az összes steppable listája.
-	private ArrayList<Steppable> steppable;
+    //Az összes steppable listája.
+    private ArrayList<Steppable> steppable;
 
-	/**
-	 * Meghívja a Step-et.
-	 */
-	public void tick() {
-		
-	}
+    /**
+     * Meghívja a Step-et.
+     */
+    public void tick() {
 
-	/**
-	 * Steppable hozzáadása a listához.
-	 * @param s
-	 */
-	public void addSteppable(Steppable s) {
-		
-	}
+    }
 
-	/**
-	 * Paraméterként kapott steppable eltávolítása a listából.
-	 * @param s
-	 */
-	public void removeSteppable(Steppable s) {
-		
-	}
-	
+    /**
+     * Steppable hozzáadása a listához.
+     * @param s
+     */
+    public void addSteppable(Steppable s) {
+
+    }
+
+    /**
+     * Paraméterként kapott steppable eltávolítása a listából.
+     * @param s
+     */
+    public void removeSteppable(Steppable s) {
+
+    }
+
 }

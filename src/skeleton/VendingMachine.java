@@ -1,51 +1,40 @@
-package skeleton;
-
 import java.util.ArrayList;
-
-import static skeleton.Application.*;
 
 public class VendingMachine extends Thing{
 
-	public void step() {
-		
-	}
+    public void step() {
 
-	/**
-	 * Sípol egyet, meghívja a szomszédos mezőkre, és ha van rajtuk állat, azokon a Jump-ot.
-	 */
-	public void beep() {
-		tabs++;
-		logger(toString() + ".beep");
+    }
 
-		ArrayList<Field> neighs = this.getField().getNeighbors();
-		if(neighs != null){
-			for(Field field : neighs) {
-				Animal tempAnimal = field.getAnimal();
-				if (tempAnimal != null)
-					tempAnimal.jump();
-			}
-		}
-		tabs--;
-	}
+    /**
+     * Sípol egyet, meghívja a szomszédos mezőkre, és ha van rajtuk állat, azokon a Jump-ot.
+     */
+    public void beep() {
+        ArrayList<Field> neighs = this.getField().getNeighbors();
+        if(neighs != null){
+            for(Field field : neighs) {
+                Animal tempAnimal = field.getAnimal();
+                if (tempAnimal != null)
+                    tempAnimal.jump();
+            }
+        }
+    }
 
-	/**
-	 * A Csokiautomata a paraméterként kapott állattal interakcióba lép, ugrik egyet a panda
-	 * @param a
-	 * @return
-	 */
-	public boolean interactWith(Animal a) {
-		tabs++;
-		logger(toString() + ".interactWith");
-		tabs--;
-		return false;
-	}
+    /**
+     * A Csokiautomata a paraméterként kapott állattal interakcióba lép, ugrik egyet a panda
+     * @param a
+     * @return
+     */
+    public boolean interactWith(Animal a) {
+        return false;
+    }
 
-	/**
-	 * ToString override.
-	 * @return
-	 */
-	@Override
-	public String toString() {
-		return "VendingMachine";
-	}
+    /**
+     * ToString override.
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "VendingMachine";
+    }
 }

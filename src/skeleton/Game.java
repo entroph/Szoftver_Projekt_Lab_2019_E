@@ -1,88 +1,83 @@
-package skeleton;
+import java.io.FileNotFoundException;
 
-import static skeleton.Application.*;
-
-/**
- * Játék osztály, kezeli a globális eventeket.
- */
 public class Game {
 
-	//Az adott pálya
-	private Map map;
-	//A játékos pontjai
-	private int points;
-	//A bejárat a pályán.
-	private Entrance entrance;
+    //Az adott pálya
+    private Map map;
+    //A játékos pontjai
+    private int points;
+    //A bejárat a pályán.
+    private Entrance entrance;
 
-	/**
-	 * Konstruktor, létrehozza a pályát, és nullázza a pontokat.
-	 */
-	public Game() {
-		System.out.println("Game created");
-		map = new Map();
-		points = 0;
-		entrance = new Entrance();
-		startGame();
-	}
+    private static Game ourInstance = new Game();
 
-	/**
-	 * Játék indítása.
-	 */
-	public void startGame() {
-		System.out.println("Game started");
-	}
+    public static Game getInstance() {
+        return ourInstance;
+    }
 
-	/**
-	 * Játék vége.
-	 */
-	public void endGame() {
-		tabs++;
-		logger(toString() + ".endGame (Here is the end, but for the convenience of the testing, the application does not exits.)");
-		tabs--;
-	}
 
-	/**
-	 * Pontok növelése
-	 */
-	public void increasePoints() {
-		tabs++;
-		logger(toString() + ".increasePoints");
-		tabs--;
-		points++;
-		if (map.pandasLeft() <= 0) {
-			map.gameOver();
-			endGame();
-		}
-	}
+    /**
+     * Konstruktor, létrehozza a pályát, és nullázza a pontokat.
+     */
+    private Game() {
+        System.out.println("Game created");
+        try {
+            map = new Map("testmap2.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        points = 0;
+        entrance = new Entrance();
+        startGame();
+    }
 
-	/**
-	 * Aktuális pálya elkérése.
-	 * @return
-	 */
-	public Map getMap() {
-		tabs++;
-		logger(toString() + ".getMap");
-		tabs--;
-		return map;
-	}
+    /**
+     * Játék indítása.
+     */
+    public void startGame() {
+        System.out.println("Game started");
+    }
 
-	/**
-	 * Bejárat elkérése.
-	 * @return
-	 */
-	public Entrance getEntrance() {
-		tabs++;
-		logger(toString() + ".getEntrance");
-		tabs--;
-		return entrance;
-	}
+    /**
+     * Játék vége.
+     */
+    public void endGame() {
 
-	/**
-	 * ToString override.
-	 * @return
-	 */
-	@Override
-	public String toString() {
-		return "Game";
-	}
+    }
+
+    /**
+     * Pontok növelése
+     */
+    public void increasePoints() {
+        points++;
+        if (map.pandasLeft() <= 0) {
+            map.gameOver();
+            endGame();
+        }
+    }
+
+    /**
+     * Aktuális pálya elkérése.
+     * @return
+     */
+    public Map getMap() {
+        return map;
+    }
+
+    /**
+     * Bejárat elkérése.
+     * @return
+     */
+    public Entrance getEntrance() {
+        return entrance;
+    }
+
+    /**
+     * ToString override.
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Game";
+    }
 }

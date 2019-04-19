@@ -1,7 +1,3 @@
-package skeleton;
-
-import static skeleton.Application.*;
-
 public class Animal {
     /**
      * Az orángutánt vagy pandát követő állatot tárolja.
@@ -17,8 +13,6 @@ public class Animal {
      * @param newField
      */
     public void move(Field newField) {
-        tabs++;
-        logger(toString() + ".move");
         Thing thingOnNewField = newField.getThing();
         Animal animalOnNewField = newField.getAnimal();
         if (animalOnNewField != null) { //if there is an animal on it, then collide with it
@@ -39,7 +33,6 @@ public class Animal {
                 newField.accept(this);
             }
         }
-        tabs--;
     }
 
     /**
@@ -53,10 +46,7 @@ public class Animal {
      * Állat halála.
      */
     public void die() {
-        tabs++;
-        logger(toString() + ".die");
         release();
-        tabs--;
     }
 
     /**
@@ -64,9 +54,6 @@ public class Animal {
      * @param f
      */
     public boolean lazy(Fotel f) {
-        tabs++;
-        logger(toString() + ".lazy");
-        tabs--;
         return false;
     }
 
@@ -97,14 +84,11 @@ public class Animal {
      * @param a
      */
     public void swap(Animal a) {
-        tabs++;
-        logger(toString() + ".swap");
         Field newField = a.getField();
         this.field.remove(this);
         newField.remove(a);
         newField.accept(this);
         this.field.accept(a);
-        tabs--;
     }
 
     /**
@@ -124,12 +108,9 @@ public class Animal {
      * @param a előtte álló állat.
      */
     public void follow(Animal a) {
-        tabs++;
-        logger(toString() + ".follow");
         Field newField = a.getField();
         newField.accept(this);
         this.field.remove(this);
-        tabs--;
     }
 
     public void leave() {
@@ -161,9 +142,6 @@ public class Animal {
     }
 
     public void release() {
-        tabs++;
-        logger(toString() + ".release");
-        tabs--;
     }
 
     /**

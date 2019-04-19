@@ -1,30 +1,26 @@
-package skeleton;
-
-import static skeleton.Application.*;
-
 /**
  * A panda osztály megvalósítása.
  */
 public class Panda extends Animal{
-	//A sorban előtte menő állat.
-	Animal following;
+    //A sorban előtte menő állat.
+    Animal following;
 
-	/**
-	 * Konstruktor.
-	 */
-	public Panda(){}
+    /**
+     * Konstruktor.
+     */
+    public Panda(){}
 
-	/**
-	 * Konstruktor, rárakja a Field-re.
-	 * @param cf Field.
-	 */
-	public Panda(Field cf)
-	{
-		setField(cf);
-	}
+    /**
+     * Konstruktor, rárakja a Field-re.
+     * @param cf Field.
+     */
+    public Panda(Field cf)
+    {
+        setField(cf);
+    }
 
-	//Ebben az esetben fölösleges különbséget tenni Panda és Orangutan között,
-	//csak is azért van nekik külön move függvényük, mert a Panda majd Step-re lép
+    //Ebben az esetben fölösleges különbséget tenni Panda és Orangutan között,
+    //csak is azért van nekik külön move függvényük, mert a Panda majd Step-re lép
 
 	/*public void Move(Field nf) {
 		tabs++;
@@ -48,130 +44,104 @@ public class Panda extends Animal{
 		tabs--;
 	}*/
 
-	/**
-	 * Ütközik a paraméterként kapott állattal.
-	 * @param a ütközés alanya.
-	 */
-	public void collideWith(Animal a) {
-		tabs++;
-		logger(toString() + ".collideWith");
-		tabs--;
-		a.hit(this);
-	}
+    /**
+     * Ütközik a paraméterként kapott állattal.
+     * @param a ütközés alanya.
+     */
+    public void collideWith(Animal a) {
+        a.hit(this);
+    }
 
-	/**
-	 * Eltalál egy orángutánt, és ha még nem követ senkit, helyet cserélnek és beáll a sorába.
-	 * @param o
-	 */
-	public void hit(Orangutan o) {
-		tabs++;
-		logger(toString() + ".hit");
-		tabs--;
+    /**
+     * Eltalál egy orángutánt, és ha még nem követ senkit, helyet cserélnek és beáll a sorába.
+     * @param o
+     */
+    public void hit(Orangutan o) {
+        //Needed to check, because if its already guided by another Orangutan, then it can't be caught by the Orangutan
+        if (this.getFollowing() != null)
+            return;
 
-		//Needed to check, because if its already guided by another Orangutan, then it can't be caught by the Orangutan
-		if (this.getFollowing() != null)
-			return;
+        Panda follower = (Panda) o.getFollower();
+        o.setFollower(this);
+        this.setFollowing(o);
+        if(follower != null){
+            this.setFollower(follower);
+            follower.setFollowing(this);
+        }
+        o.swap(this);
+    }
 
-		Panda follower = (Panda) o.getFollower();
-		o.setFollower(this);
-		this.setFollowing(o);
-		if(follower != null){
-			this.setFollower(follower);
-			follower.setFollowing(this);
-		}
-		o.swap(this);
-	}
+    /**
+     * Eltalál egy pandát, semmi nem történik.
+     * @param p
+     */
+    public void hit(Panda p) {
+    }
 
-	/**
-	 * Eltalál egy pandát, semmi nem történik.
-	 * @param p
-	 */
-	public void hit(Panda p) {
-		tabs++;
-		logger(toString() + ".hit (Nothing happens when a Panda tries to catch another Panda)");
-		tabs--;
-	}
+    /**
+     * Kijárat mezőn áll, meghívja az őt eltávolító függvényeket.
+     */
+    public void leave() {
+        if(follower != null)
+            follower.follow(this);
 
-	/**
-	 * Kijárat mezőn áll, meghívja az őt eltávolító függvényeket.
-	 */
-	public void leave() {
-		tabs++;
-		logger(toString() + ".leave");
-		tabs--;
+        Map map = Game.getInstance().getMap();
+        map.decreasePandas();
+        Game.getInstance().increasePoints();
+    }
 
-		if(follower != null)
-			follower.follow(this);
+    /**
+     * Beállítja a paraméterként kapott állatot követettjének.
+     * @param a
+     */
+    public void setFollowing(Animal a) {
+        this.following = a;
+    }
 
-		Map map = game.getMap();
-		map.decreasePandas();
-		game.increasePoints();
-	}
+    /**
+     * Visszatér a követettjével.
+     * @return
+     */
+    public Animal getFollowing() {
+        return following;
+    }
 
-	/**
-	 * Beállítja a paraméterként kapott állatot követettjének.
-	 * @param a
-	 */
-	public void setFollowing(Animal a) {
-		tabs++;
-		logger(toString() + ".setFollowing");
-		tabs--;
-		this.following = a;
-	}
+    /**
+     * Beállítja az őt követő állatot.
+     * @param a
+     */
+    public void setFollower(Animal a) {
+        this.follower = a;
+    }
 
-	/**
-	 * Visszatér a követettjével.
-	 * @return
-	 */
-	public Animal getFollowing() {
-		return following;
-	}
+    /**
+     * Visszatér a követőjével.
+     * @return
+     */
+    public Animal getFollower() {
+        return follower;
+    }
 
-	/**
-	 * Beállítja az őt követő állatot.
-	 * @param a
-	 */
-	public void setFollower(Animal a) {
-		tabs++;
-		logger(toString() + ".setFollower (Here the Panda (which previously followed the Orangutan or a Panda) starts to hold the newly arrived Panda's hand)");
-		tabs--;
-		this.follower = a;
-	}
+    /**
+     * Visszatér azzal a mezővel amelyiken áll.
+     * @return
+     */
+    public Field getField() {
+        return field;
+    }
 
-	/**
-	 * Visszatér a követőjével.
-	 * @return
-	 */
-	public Animal getFollower() {
-		return follower;
-	}
+    /**
+     * Ha megijed, elengedi a mögötte állók kezét, törli a follower-t.
+     */
+    public void scare() {
+    }
 
-	/**
-	 * Visszatér azzal a mezővel amelyiken áll.
-	 * @return
-	 */
-	public Field getField() {
-		tabs++;
-		logger(toString() + ".getField");
-		tabs--;
-		return field;
-	}
-
-	/**
-	 * Ha megijed, elengedi a mögötte állók kezét, törli a follower-t.
-	 */
-	public void scare() {
-		tabs++;
-		logger(toString() + ".scare");
-		tabs--;
-	}
-
-	/**
-	 * ToString override.
-	 * @return
-	 */
-	@Override
-	public String toString() {
-		return "Panda";
-	}
+    /**
+     * ToString override.
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Panda";
+    }
 }
