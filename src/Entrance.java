@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Bejárat mezőt reprezentál.
  */
-public class Entrance extends Field{
+public class Entrance extends Field implements Steppable{
 
     public Entrance(String name){
         neighbors = new ArrayList<Field>();
@@ -28,5 +28,10 @@ public class Entrance extends Field{
     @Override
     public String toString() {
         return "Entrance";
+    }
+
+    @Override
+    public void step() {
+
     }
 }

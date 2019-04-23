@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Kijárat mező osztálya.
  */
-public class Exit extends Field {
+public class Exit extends Field implements Steppable{
 
     public Exit(String name){
         neighbors = new ArrayList<Field>();
@@ -28,5 +28,10 @@ public class Exit extends Field {
     @Override
     public String toString() {
         return "Exit";
+    }
+
+    @Override
+    public void step() {
+
     }
 }
