@@ -93,11 +93,18 @@ public class Animal {
      * @param a
      */
     public void swap(Animal a) {
-        Field newField = a.getField();
-        this.field.remove(this);
-        newField.remove(a);
-        newField.accept(this);
-        this.field.accept(a);
+        //Field newField = a.getField();
+        //this.field.remove(this);
+        //newField.remove(a);
+        //newField.accept(this);
+        //this.field.accept(a);
+
+        Field temp1 = a.getField();
+        Field temp2 = this.getField();
+        temp1.remove(a);
+        temp2.remove(this);
+        temp1.accept(this);
+        temp2.accept(a);
     }
 
     /**
@@ -151,6 +158,12 @@ public class Animal {
     }
 
     public void release() {
+            Panda follower = (Panda) this.getFollower();
+            while(follower != null){
+                follower.setFollowing(null);
+                follower = (Panda) follower.getFollower();
+            }
+
     }
 
     /**

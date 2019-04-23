@@ -33,6 +33,11 @@ public class WeakField extends Field {
             follower.setFollowing(null);
             follower = (Panda) follower.getFollower();
         }
+        remove(getAnimal());
+        for (Field n: neighbors) {
+            n.getNeighbors().remove(this);
+        }
+        neighbors = null;
     }
 
     /**
@@ -66,6 +71,9 @@ public class WeakField extends Field {
             animalName = "-";
         else
             animalName = animal.getName();
-        return name + " " + animalName + " " + hitpoints;
+        if(hitpoints == 0)
+            return "Nincs ilyen mezo!";
+        else
+            return name + " " + animalName + " " + hitpoints;
     }
 }

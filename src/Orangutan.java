@@ -3,6 +3,16 @@
  */
 public class Orangutan extends Animal{
 
+    int waitTime = 0;
+
+    public int getWaitTime(){
+        return waitTime;
+    }
+
+    public void setWaitTime(){
+        waitTime = 3;
+    }
+
     public Orangutan(String name, Field field){
         super(name, field);
     }
@@ -18,6 +28,11 @@ public class Orangutan extends Animal{
      * @param o
      */
     public void hit(Orangutan o) {
+        if(o.getWaitTime() == 0 && o.getFollower() == null && this.getFollower() != null){
+            swap(o);
+            o.setFollower(this.getFollower());
+            this.setFollower(null);
+        }
 
     }
 
