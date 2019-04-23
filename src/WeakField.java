@@ -33,11 +33,25 @@ public class WeakField extends Field {
             follower.setFollowing(null);
             follower = (Panda) follower.getFollower();
         }
-        remove(getAnimal());
+        if (animal.getFollower() != null)
+            deleteFollower(animal, (Panda) animal.getFollower());
+
+        remove(animal);
         for (Field n: neighbors) {
             n.getNeighbors().remove(this);
         }
         neighbors = null;
+    }
+
+    private void deleteFollower(Animal a, Panda b){
+        if (a.getFollower() != null){
+            deleteFollower(b, (Panda)b.getFollower());
+        }
+        if (a.getFollower() == null){
+            a.follower = null;
+            return;
+        }
+
     }
 
     /**
