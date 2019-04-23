@@ -25,6 +25,8 @@ public class LazyPanda extends Panda{
     public boolean lazy(Fotel f) {
         setSitting(true);
         setField(f.getField());
+        f.setPanda(this);
+        //move(f.getField());
         release();
         return true;
     }
