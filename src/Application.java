@@ -127,6 +127,11 @@ public class Application {
                                         field.setAnimal(spanda);
                                         break;
                                     }
+                                    else if(tokens[3].equals("jumping")) {
+                                        JumpingPanda jpanda = new JumpingPanda(tokens[1], field);
+                                        jpanda.setField(field);
+                                        field.setAnimal(jpanda);
+                                        break;
                                 }
                                 else{
                                     Panda panda = new Panda(tokens[1], field);
