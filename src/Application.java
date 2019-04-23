@@ -114,10 +114,26 @@ public class Application {
                     for(Field field : game.getMap().getFields()){
                         if(field.getName().equals(tokens[2])){
                             if(field.getAnimal() == null && field.getThing() == null){
-                                Panda panda = new Panda(tokens[1], field);
-                                panda.setField(field);
-                                field.setAnimal(panda);
-                                break;
+                                if(tokens.length > 3){
+                                    if(tokens[3].equals("lazy")) {
+                                        LazyPanda lpanda = new LazyPanda(tokens[1], field);
+                                        lpanda.setField(field);
+                                        field.setAnimal(lpanda);
+                                        break;
+                                    }
+                                    else if(tokens[3].equals("scared")) {
+                                        ScaredPanda spanda = new ScaredPanda(tokens[1], field);
+                                        spanda.setField(field);
+                                        field.setAnimal(spanda);
+                                        break;
+                                    }
+                                }
+                                else{
+                                    Panda panda = new Panda(tokens[1], field);
+                                    panda.setField(field);
+                                    field.setAnimal(panda);
+                                    break;
+                                }
                             }
                         }
                     }
