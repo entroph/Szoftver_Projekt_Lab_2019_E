@@ -133,6 +133,7 @@ public class Animal implements Steppable {
         Field newField = a.getField();
         this.field.remove(this);
         newField.accept(this);
+        newField.setAnimal(this);
     }
 
     public void leave() {
