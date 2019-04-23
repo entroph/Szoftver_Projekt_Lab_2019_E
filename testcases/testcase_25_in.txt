@@ -1,11 +1,11 @@
 loadmap testmap2
 addorangutan o1 f8
-addpanda lp1 f9
-addpanda p2 f3
+addpanda sp1 f9 scared
+addpanda sp2 f3 scared
 addarcade a1 f10
-setfollower o1 lp1
-setfollower lp1 p2
+setfollower o1 sp1
+setfollower sp1 sp2
 step
 checkanimal o1
-checkanimal lp1
-checkanimal p2
+checkanimal sp1
+checkanimal sp2
