@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Az összetörhető mező osztálya.
  */
@@ -33,6 +35,7 @@ public class WeakField extends Field {
             follower.setFollowing(null);
             follower = (Panda) follower.getFollower();
         }
+
         remove(getAnimal());
         for (Field n: neighbors) {
             n.getNeighbors().remove(this);
@@ -45,8 +48,12 @@ public class WeakField extends Field {
      * @param amount
      */
     public void decreaseHitpoints(int amount) {
-        hitpoints -= amount;
+        hitpoints--;
         if(hitpoints <= 0){
+            //animal.getFollower().setFollower(null);
+            Panda follow = (Panda) animal;
+            Animal alive = follow.getFollowing();
+            alive.setFollower(null);
             animal.die();
             delete();
         }
