@@ -170,6 +170,18 @@ public class Animal implements Steppable {
                 follower.setFollowing(null);
                 follower = (Panda) follower.getFollower();
             }
+        if (this.getFollower() != null)
+            deleteFollower(this);
+    }
+
+    private void deleteFollower(Animal a){
+        if (a.getFollower() != null){
+            deleteFollower((Panda) a.getFollower());
+        }
+        if (a.getFollower() == null){
+            follower = null;
+            return;
+        }
 
     }
 

@@ -335,6 +335,10 @@ public class Application {
             else if (input > 0 && input < 33) {
                 HandleInputs("testcase_" + input + "_in.txt", "testcase_" + input + "_out.txt");
             }
+            if(input == 33) { for(int i = 1;i<=32;i++) {
+                HandleInputs("testcase_"+i+"_in.txt", "testcase_"+i+"_out.txt");
+            }
+            }
         }
     }
 }
