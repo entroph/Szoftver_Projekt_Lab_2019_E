@@ -73,6 +73,7 @@ public class Orangutan extends Animal{
      */
     public void leave() {
         Entrance ent = Game.getInstance().getEntrance();
+        setFollower(null);
         ent.accept(this);
     }
 

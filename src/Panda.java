@@ -82,6 +82,17 @@ public class Panda extends Animal{
     }
 
     /**
+     * Megöli a pandát, és az elötte állónak a followerjét nullra állítja és releasel.
+     *
+     */
+    public void die(){
+        if(following != null){
+            following.setFollower(null);
+        }
+        release();
+    }
+
+    /**
      * Kijárat mezőn áll, meghívja az őt eltávolító függvényeket.
      */
     public void leave() {

@@ -1,6 +1,6 @@
 loadmap testmap1
 addfotel fotel1 f2
-addpanda p1 f1
+addpanda p1 f1 lazy
 step
 step
 step

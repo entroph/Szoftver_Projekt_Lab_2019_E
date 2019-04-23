@@ -3,9 +3,7 @@
  */
 public class Cabinet extends Thing{
 
-    public Cabinet(String name, Field field){
-        super(name, field);
-    }
+    public Cabinet(String name, Field field){ super(name, field); }
 
     /**
      * Szomszédos szekrény.

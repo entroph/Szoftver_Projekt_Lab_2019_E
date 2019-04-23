@@ -2,9 +2,7 @@ import java.util.ArrayList;
 
 public class VendingMachine extends Thing{
 
-    public VendingMachine(String name, Field field){
-        super(name, field);
-    }
+    public VendingMachine(String name, Field field){ super(name, field); }
 
     public void step() {
         beep();
