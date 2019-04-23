@@ -1,3 +1,3 @@
 @echo off
-java -jar Tester.jar
-@echo Running Tester.jar
+java -jar Proto.jar
+@echo Running Proto.jar
