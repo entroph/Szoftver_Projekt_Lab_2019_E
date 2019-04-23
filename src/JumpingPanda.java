@@ -10,7 +10,7 @@ public class JumpingPanda extends Panda {
     /**
      * Ugrik egyet a panda, és csökkenti a Field-jének Hitpoint-ját.
      */
-    public void Jump() {
+    public void jump() {
         this.getField().decreaseHitpoints(5);
     }
 }

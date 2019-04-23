@@ -45,7 +45,7 @@ public class WeakField extends Field {
      * @param amount
      */
     public void decreaseHitpoints(int amount) {
-        hitpoints--;
+        hitpoints -= amount;
         if(hitpoints <= 0){
             animal.die();
             delete();
