@@ -3,9 +3,7 @@
  */
 public class Cabinet extends Thing{
 
-    public Cabinet(String name, Field field){
-        super(name, field);
-    }
+    public Cabinet(String name, Field field){ super(name, field); }
 
     /**
      * Szomszédos szekrény.
@@ -21,7 +19,7 @@ public class Cabinet extends Thing{
 
         Field neighborCabinetField = neighborCabinet.getField();
         Animal animalOnNeighborCabinet = neighborCabinetField.getAnimal();
-        if(animalOnNeighborCabinet == null){
+        if(animalOnNeighborCabinet == null && animalOnCabinet != null){
             neighborCabinet.teleport(animalOnCabinet);
         }
     }

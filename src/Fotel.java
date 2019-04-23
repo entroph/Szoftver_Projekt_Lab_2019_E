@@ -37,6 +37,7 @@ public class Fotel extends Thing{
                     Animal tempAnimal = field.getAnimal();
                     if (tempAnimal != null) {
                         if (tempAnimal.lazy(this)) {
+                            busy = true;
                             break;
                         }
                         //Only one panda can sit into a Fotel, so the first one sits down in it
@@ -58,7 +59,7 @@ public class Fotel extends Thing{
     public void empty() {
         sittingPanda.unLazy(this);
         setBusy(false);
-        setSitTime(5);
+        setSitTime(3);
     }
 
     /**

@@ -2,9 +2,7 @@ import java.util.ArrayList;
 
 public class Arcade extends Thing{
 
-    public Arcade(String name, Field field){
-        super(name, field);
-    }
+    public Arcade(String name, Field field){ super(name, field); }
 
     public void step() {
         jingle();
