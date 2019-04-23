@@ -20,7 +20,7 @@ public class Game {
     private Game() {
         //map = new Map();
         points = 0;
-        entrance = new Entrance();
+        entrance = new Entrance("?");
         startGame();
     }
 
