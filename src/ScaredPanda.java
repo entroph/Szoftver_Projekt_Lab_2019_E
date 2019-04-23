@@ -16,8 +16,20 @@ public class ScaredPanda extends Panda{
             follower.setFollowing(null);
             follower = (Panda) follower.getFollower();
         }
+        if (this.getFollower() != null)
+            deleteFollower(this);
     }
 
+    private void deleteFollower(Panda p){
+        if (p.getFollower() != null){
+            deleteFollower((Panda) p.getFollower());
+        }
+        if (p.getFollower() == null){
+            follower = null;
+            return;
+        }
+
+    }
 
     /**
      * ToString override.
