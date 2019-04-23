@@ -72,9 +72,6 @@ public class Orangutan extends Animal{
      * Pálya elhagyása a kijáraton.
      */
     public void leave() {
-        if(follower != null)
-            follower.follow(this);
-
         Entrance ent = Game.getInstance().getEntrance();
         ent.accept(this);
     }
