@@ -9,7 +9,6 @@ public class Fotel extends Thing{
     //A fotelban ülő panda
     private LazyPanda sittingPanda;
 
-    String name;
 
     /**
      * Konstruktor, beállítja a default értékeket.
@@ -22,7 +21,7 @@ public class Fotel extends Thing{
 
     public Fotel(String name, Field field){
         super(name, field);
-        sitTime = 0;
+        sitTime = 3;
         busy = false;
         sittingPanda = null;
     }
@@ -103,6 +102,6 @@ public class Fotel extends Thing{
                 sittingName = sittingPanda.getName();
         }
 
-        return this.name + " " + this.field.getName() + " " + sittingName + " " + sitTime;
+        return name + " " + field.getName() + " " + sittingName + " " + sitTime;
     }
 }
