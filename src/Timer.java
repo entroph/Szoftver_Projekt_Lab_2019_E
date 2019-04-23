@@ -14,7 +14,7 @@ public class Timer {
     private Timer(){ }
 
     //Az összes steppable listája.
-    private static ArrayList<Steppable> steppable;
+    private static ArrayList<Steppable> steppable = new ArrayList<>();
 
     /**
      * Meghívja a Step-et.
