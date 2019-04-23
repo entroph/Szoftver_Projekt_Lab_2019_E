@@ -128,8 +128,8 @@ public class Animal implements Steppable {
      */
     public void follow(Animal a) {
         Field newField = a.getField();
-        newField.accept(this);
         this.field.remove(this);
+        newField.accept(this);
     }
 
     public void leave() {

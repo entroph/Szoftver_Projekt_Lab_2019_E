@@ -31,7 +31,9 @@ public class Cabinet extends Thing{
      * @param a
      */
     public void teleport(Animal a) {
-        a.getFollower().follow(a);
+        if(a.getFollower() != null) {
+            a.getFollower().follow(a);
+        }
         Field animalField = a.getField();
         animalField.remove(a);
         this.field.accept(a);

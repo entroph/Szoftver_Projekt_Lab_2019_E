@@ -1,2 +1,2 @@
-fotel f2 - 0
+fotel1 f2 - 0
 p1 f1 -

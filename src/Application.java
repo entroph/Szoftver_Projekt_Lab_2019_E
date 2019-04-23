@@ -243,12 +243,17 @@ public class Application {
                 break;
             case "checkanimal":
                 //check token[1] animal
+                boolean found = false;
                 if(!tokens[1].isEmpty()){
                     for(Field field : game.getMap().getFields()){
                         if(field.getAnimal() != null && field.getAnimal().getName().equals(tokens[1])){
+                            found = true;
                             System.out.println(field.getAnimal().toString());
                             break;
                         }
+                    }
+                    if(!found) {
+                        System.out.println("Nincs ilyen állat!");
                     }
                 }
                 break;
