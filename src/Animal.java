@@ -15,6 +15,7 @@ public class Animal implements Steppable {
     public Animal(String name, Field field){
         this.name = name;
         this.field = field;
+        this.follower = null;
         Timer.getInstance().addSteppable(this);
     }
 
@@ -41,7 +42,9 @@ public class Animal implements Steppable {
             else {
                 if (follower != null)
                     follower.follow(this);
-                this.field.remove(this);
+                else {
+                    this.field.remove(this);
+                }
                 newField.accept(this);
             }
         }

@@ -2,6 +2,7 @@ loadmap testmap1
 addorangutan o1 f4
 addpanda p1 f1
 setfollower o1 p1
+sethitpoints wf1 1
 move o1 wf1
 checkweakfield wf1
 checkanimal o1
