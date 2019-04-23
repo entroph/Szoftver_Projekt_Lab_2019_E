@@ -30,8 +30,11 @@ public class Map {
                 }
                 split = sc.nextLine().split(",");
                 if(!split[0].equals("") && !split[1].equals("")){
-                    fields.set(Integer.parseInt(split[0])-1, new Entrance("f"+Integer.parseInt(split[0])));
-                    fields.set(Integer.parseInt(split[1])-1, new Exit("f"+Integer.parseInt(split[1])));
+                    Entrance en = new Entrance("f"+Integer.parseInt(split[0]));
+                    Exit ex = new Exit("f"+Integer.parseInt(split[1]));
+                    Game.getInstance().setEntrance(en);
+                    fields.set(Integer.parseInt(split[0])-1, en);
+                    fields.set(Integer.parseInt(split[1])-1, ex);
                 }
             }
 

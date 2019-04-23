@@ -20,7 +20,6 @@ public class Game {
     private Game() {
         //map = new Map();
         points = 0;
-        entrance = new Entrance("?");
         startGame();
     }
 
@@ -71,6 +70,9 @@ public class Game {
         return entrance;
     }
 
+    public void setEntrance(Entrance en){
+        entrance = en;
+    }
     /**
      * ToString override.
      * @return
