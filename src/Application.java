@@ -132,7 +132,7 @@ public class Application {
                                         jpanda.setField(field);
                                         field.setAnimal(jpanda);
                                         break;
-                                }
+                                }}
                                 else{
                                     Panda panda = new Panda(tokens[1], field);
                                     panda.setField(field);
@@ -292,7 +292,7 @@ public class Application {
         }
     }
 
-    private static void menu() {
+    private static void menu(){
         Scanner s = new Scanner(System.in);
 
         while (true) {

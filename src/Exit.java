@@ -21,15 +21,6 @@ public class Exit extends Field implements Steppable{
         a.leave();
     }
 
-    /**
-     * ToString override.
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "Exit";
-    }
-
     @Override
     public void step() {
 

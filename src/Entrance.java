@@ -21,15 +21,6 @@ public class Entrance extends Field implements Steppable{
         a.setField(this);
     }
 
-    /**
-     * ToString override.
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "Entrance";
-    }
-
     @Override
     public void step() {
 
