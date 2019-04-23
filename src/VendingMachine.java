@@ -7,7 +7,7 @@ public class VendingMachine extends Thing{
     }
 
     public void step() {
-
+        beep();
     }
 
     /**

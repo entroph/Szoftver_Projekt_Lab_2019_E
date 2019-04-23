@@ -217,6 +217,7 @@ public class Application {
                 break;
             case "step":
                 //step the steppables
+                Timer.getInstance().tick();
                 break;
             case "checkfield":
                 //check token[1] field

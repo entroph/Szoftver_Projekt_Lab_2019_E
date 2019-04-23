@@ -7,7 +7,7 @@ public class Arcade extends Thing{
     }
 
     public void step() {
-
+        jingle();
     }
 
     /**

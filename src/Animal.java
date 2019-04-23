@@ -15,6 +15,7 @@ public class Animal implements Steppable {
     public Animal(String name, Field field){
         this.name = name;
         this.field = field;
+        Timer.getInstance().addSteppable(this);
     }
 
     /**

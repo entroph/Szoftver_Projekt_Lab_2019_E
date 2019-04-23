@@ -12,7 +12,7 @@ public class Thing implements Steppable{
     public Thing(String name, Field field){
         this.name = name;
         this.field = field;
-
+        Timer.getInstance().addSteppable(this);
     }
 
     public String getName(){

@@ -5,6 +5,14 @@ import java.util.ArrayList;
  */
 public class Timer {
 
+    private static Timer ourInstance = new Timer();
+
+    public static Timer getInstance() {
+        return ourInstance;
+    }
+
+    private Timer(){ }
+
     //Az összes steppable listája.
     private static ArrayList<Steppable> steppable;
 
@@ -12,7 +20,11 @@ public class Timer {
      * Meghívja a Step-et.
      */
     public void tick() {
-
+        if (steppable != null){
+            for (Steppable s:steppable) {
+                s.step();
+            }
+        }
     }
 
     /**
