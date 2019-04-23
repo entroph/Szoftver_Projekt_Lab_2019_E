@@ -1,6 +1,7 @@
 loadmap testmap1
-addpanda p1 wf1
+addpanda p1 wf1 jumping
 addvm vm1 f5
+sethitpoints wf1 5
 step
 checkweakfield wf1
 checkanimal p1
