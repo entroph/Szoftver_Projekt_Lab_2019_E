@@ -328,12 +328,18 @@ public class Application {
                     "30. Panda kijáratra követ orángutánt\n" +
                     "31. Panda pandával ütközik\n" +
                     "32. Panda orángutánnal ütközik\n" +
+                    "33. Összes teszt lefuttatása\n" +
                     "0. Kilépés");
             int input = Integer.parseInt(s.nextLine());
             if (input == 0)
                 break;
             else if (input > 0 && input < 33) {
                 HandleInputs("testcase_" + input + "_in.txt", "testcase_" + input + "_out.txt");
+            }if(input == 33) { for(int i = 1;i<=32;i++) {
+                System.out.println("\n" + i + ". teszteset \n------------");
+                HandleInputs("testcase_"+i+"_in.txt", "testcase_"+i+"_out.txt");
+                System.out.println("------------\n");
+            }
             }
         }
     }
