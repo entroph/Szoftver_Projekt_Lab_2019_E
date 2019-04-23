@@ -22,8 +22,8 @@ public class ScaredPanda extends Panda{
      * ToString override.
      * @return
      */
-    @Override
+    /*@Override
     public String toString(){
         return "ScaredPanda";
-    }
+    }*/
 }

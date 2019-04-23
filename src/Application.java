@@ -278,7 +278,7 @@ public class Application {
                 if(!tokens[1].isEmpty()){
                     for(Field field : game.getMap().getFields()){
                         if(field.getThing() != null && field.getThing().getName().equals(tokens[1])){
-                            System.out.println(field.getAnimal().toString());
+                            System.out.println(field.getThing().toString());
                             break;
                         }
                     }
