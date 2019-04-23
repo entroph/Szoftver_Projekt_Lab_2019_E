@@ -1,0 +1,6 @@
+loadmap testmap1
+addpanda p1 f1
+addvm a1 f2
+move p1 f2
+checkanimal p1
+checkfield f2

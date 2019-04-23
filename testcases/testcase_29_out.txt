@@ -1,0 +1,3 @@
+Nincs ilyen mezõ!
+Nincs ilyen állat!
+p2 f4 -

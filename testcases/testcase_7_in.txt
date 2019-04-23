@@ -1,0 +1,5 @@
+loadmap testmap1
+addorangutan o1 f1
+addpanda p1 f2
+move o1 f2
+checkanimal o1

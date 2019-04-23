@@ -1,0 +1,5 @@
+loadmap testmap1
+addpanda p1 wf1
+addvm vm1 f5
+step
+checkweakfield wf1

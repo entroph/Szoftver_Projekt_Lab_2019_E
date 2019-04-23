@@ -1,0 +1,9 @@
+loadmap testmap1
+addfotel fotel1 f2
+addpanda p1 f1
+step
+step
+step
+step
+checkfotel fotel1
+checkanimal p1

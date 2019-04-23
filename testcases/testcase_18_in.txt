@@ -1,0 +1,8 @@
+loadmap testmap1
+addpanda p1 f4
+addorangutan o1 wf1
+setfollower o1 p1
+move o1 f5
+checkweakfield wf1
+checkanimal p1
+checkanimal o1
