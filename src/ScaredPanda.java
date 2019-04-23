@@ -18,6 +18,7 @@ public class ScaredPanda extends Panda{
         }
     }
 
+
     /**
      * ToString override.
      * @return

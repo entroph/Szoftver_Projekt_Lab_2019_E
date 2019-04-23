@@ -19,7 +19,7 @@ public class Cabinet extends Thing{
 
         Field neighborCabinetField = neighborCabinet.getField();
         Animal animalOnNeighborCabinet = neighborCabinetField.getAnimal();
-        if(animalOnNeighborCabinet == null){
+        if(animalOnNeighborCabinet == null && animalOnCabinet != null){
             neighborCabinet.teleport(animalOnCabinet);
         }
     }
