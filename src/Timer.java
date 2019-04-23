@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Timer {
 
     //Az összes steppable listája.
-    private ArrayList<Steppable> steppable;
+    private static ArrayList<Steppable> steppable;
 
     /**
      * Meghívja a Step-et.
@@ -20,7 +20,7 @@ public class Timer {
      * @param s
      */
     public void addSteppable(Steppable s) {
-
+        steppable.add(s);
     }
 
     /**
@@ -28,7 +28,7 @@ public class Timer {
      * @param s
      */
     public void removeSteppable(Steppable s) {
-
+        steppable.remove(s);
     }
 
 }

@@ -1,3 +1,4 @@
+
 /**
  * A pályán lévő tárgyak ősosztálya.
  */
@@ -11,6 +12,7 @@ public class Thing implements Steppable{
     public Thing(String name, Field field){
         this.name = name;
         this.field = field;
+
     }
 
     public String getName(){
