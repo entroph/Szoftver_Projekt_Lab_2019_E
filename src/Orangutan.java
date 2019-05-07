@@ -84,13 +84,7 @@ public class Orangutan extends Animal{
      * @return
      */
     @Override
-    public String toString() {
-        String followerName = "";
-        if(follower == null || follower.getName().isEmpty())
-            followerName = "-";
-        else
-            followerName = follower.getName();
-
-        return name + " " + field.getName() + " " + followerName;
+    public String toString(){
+        return "orangutan";
     }
 }

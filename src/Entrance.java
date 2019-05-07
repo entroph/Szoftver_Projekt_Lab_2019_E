@@ -25,4 +25,18 @@ public class Entrance extends Field implements Steppable{
     public void step() {
 
     }
+
+    @Override
+    public String toString(){
+        String contains = "img\\entrance";
+        if(animal != null)
+            contains += "_" + animal.toString();
+
+        if(thing != null)
+            contains += "_" + thing.toString();
+
+        contains += ".png";
+
+        return contains;
+    }
 }

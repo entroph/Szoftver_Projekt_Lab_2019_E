@@ -123,13 +123,16 @@ public class Field {
      */
     @Override
     public String toString() {
-        String animalName = "";
-        if(animal == null || animal.getName().isEmpty())
-            animalName = "-";
-        else
-            animalName = animal.getName();
+        String contains = "img\\emptyfield";
+        if(animal != null)
+            contains += "_" + animal.toString();
 
-        return name + " " + animalName;
+        if(thing != null)
+            contains += "_" + thing.toString();
+
+        contains += ".png";
+
+        return contains;
     }
 
     public void setHitpoints(int amount) {}

@@ -93,16 +93,12 @@ public class Fotel extends Thing{
      */
     @Override
     public String toString() {
-        String sittingName = "";
-        if(sittingPanda == null)
-            sittingName = "-";
-        else{
-            if(sittingPanda.getName().isEmpty())
-                sittingName = "-";
-            else
-                sittingName = sittingPanda.getName();
-        }
+        String contains = "img\\fotel";
+        if(sittingPanda != null)
+            contains += "_" + sittingPanda.toString(); //peldaul cabinet_panda.png ha a cabineten panda áll
 
-        return name + " " + field.getName() + " " + sittingName + " " + sitTime;
+        contains += ".png";
+
+        return contains;
     }
 }

@@ -37,7 +37,7 @@ public class Arcade extends Thing{
      */
     @Override
     public String toString() {
-        return this.name + " " + this.field.getName();
+        return "arcade";
     }
 }
 

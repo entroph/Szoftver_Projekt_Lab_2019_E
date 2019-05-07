@@ -37,6 +37,6 @@ public class VendingMachine extends Thing{
      */
     @Override
     public String toString() {
-        return "VendingMachine";
+        return "vendingmachine";
     }
 }

@@ -1,5 +1,3 @@
-import com.sun.jdi.event.StepEvent;
-
 public class Animal implements Steppable {
     /**
      * Az orángutánt vagy pandát követő állatot tárolja.

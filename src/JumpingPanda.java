@@ -13,4 +13,9 @@ public class JumpingPanda extends Panda {
     public void jump() {
         this.getField().decreaseHitpoints(5);
     }
+
+    @Override
+    public String toString(){
+        return "jumpingpanda";
+    }
 }

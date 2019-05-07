@@ -49,4 +49,9 @@ public class LazyPanda extends Panda{
     public void setSitting(boolean value) {
         sitting = value;
     }
+
+    @Override
+    public String toString(){
+        return "lazypanda";
+    }
 }

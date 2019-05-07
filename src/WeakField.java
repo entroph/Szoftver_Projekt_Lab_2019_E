@@ -66,14 +66,18 @@ public class WeakField extends Field {
      */
     @Override
     public String toString() {
-        String animalName = "";
-        if(animal == null || animal.getName().isEmpty())
-            animalName = "-";
-        else
-            animalName = animal.getName();
-        if(hitpoints == 0)
-            return "Nincs ilyen mezo!";
-        else
-            return name + " " + animalName + " " + hitpoints;
+        if(hitpoints < 0)
+            return "img\\cracked_field.png";
+
+        String contains = "img\\emptyfield";
+        if(animal != null)
+            contains += "_" + animal.toString();
+
+        if(thing != null)
+            contains += "_" + thing.toString();
+
+        contains += ".png";
+
+        return contains;
     }
 }

@@ -47,6 +47,10 @@ public class Game {
         }
     }
 
+    public int getPoints(){
+        return points;
+    }
+
     /**
      * Aktuális pálya elkérése.
      * @return
