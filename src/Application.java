@@ -27,13 +27,11 @@ enum ThingType{
  */
 public class Application {
     public static Game game;
-    private static String WorkingDirectory = System.getProperty("user.dir");
+    public static View mainPanel = new View();
+    //private static String WorkingDirectory = System.getProperty("user.dir");
 
     public static void main(String[] args) {
         game = Game.getInstance();
-
-        //Display
-        View mainPanel = new View(game);
 
         JFrame mainFrame = new JFrame("Panda Pláza");
         mainFrame.setSize(1280, 720);

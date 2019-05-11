@@ -1,3 +1,4 @@
+import javax.swing.*;
 
 /**
  * A pályán lévő tárgyak ősosztálya.

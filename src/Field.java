@@ -1,9 +1,10 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
  * Mező osztály.
  */
-public class Field {
+public class Field extends JButton implements Drawable {
 
     //Szomszédos mezők listája.
     ArrayList<Field> neighbors;
@@ -22,6 +23,7 @@ public class Field {
         animal =  null;
         thing = null;
         name = null;
+        this.setIcon(new ImageIcon("img\\field.png"));
     }
 
     public Field(String name){
@@ -123,7 +125,7 @@ public class Field {
      */
     @Override
     public String toString() {
-        String contains = "img\\emptyfield";
+        String contains = "img\\field";
         if(animal != null)
             contains += "_" + animal.toString();
 
@@ -136,4 +138,11 @@ public class Field {
     }
 
     public void setHitpoints(int amount) {}
+
+    @Override
+    public void draw() {
+        if(animal != null) {
+            this.setIcon(new ImageIcon("img\\field_" + animal.toString() + ".png"));
+        }
+    }
 }

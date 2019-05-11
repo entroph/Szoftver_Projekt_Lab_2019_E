@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 public class View extends JPanel {
-    private Game currentGame;
     private ArrayList<Field> fields;
     private HashMap<Field, JButton> pairs;
 
@@ -34,9 +33,7 @@ public class View extends JPanel {
 
     private JPanel cardLayoutContainer;
 
-    public View(Game gameInstance){
-        this.currentGame = gameInstance;
-
+    public View(){
         cardLayoutContainer = this;
 
         cardLayout = new CardLayout();
@@ -54,16 +51,14 @@ public class View extends JPanel {
                 super.paintComponent(g);
 
                 Graphics2D g2 = (Graphics2D) g;
-                g2.setStroke(new BasicStroke(10));
+                g2.setStroke(new BasicStroke(8));
 
                 g2.drawImage(backGround, 0, 0, gamePanel);
 
                 if(grid != null && grid.length > 0 && fields != null && fields.size() > 0){
                     for(Field fld : fields){
-                        JButton sourceField = pairs.get(fld); //ebből indulnak az élek
-                        for(Field field : fld.getNeighbors()){
-                            JButton targetField = pairs.get(field);
-                            g2.draw(new Line2D.Float(sourceField.getX()+64, sourceField.getY()+32, targetField.getX()+64, targetField.getY()+32));
+                        for(Field nb : fld.getNeighbors()){
+                            g2.draw(new Line2D.Float(fld.getX()+64, fld.getY()+32, nb.getX()+64, nb.getY()+32));
                         }
                     }
                 }
@@ -106,9 +101,9 @@ public class View extends JPanel {
                     if (returner == JFileChooser.APPROVE_OPTION) {
                         String fileName = fileChooser.getSelectedFile().getName();
                         if(fileName.contains("testmap") && fileName.contains(".txt") && fileName != null){
-                            currentGame.setMap(new Map(fileName));
+                            Application.game.setMap(new Map(fileName));
                             try{
-                                fields = currentGame.getMap().getFields();
+                                fields = Application.game.getMap().getFields();
                             }
                             catch (Exception ex){
                                 ex.printStackTrace();
@@ -165,6 +160,7 @@ public class View extends JPanel {
             int fieldSize = fields.size();
 
             int counter = 0;
+            fields.get(5).setAnimal(new Orangutan("a", fields.get(5)));
 
             for(int y=0; y<length; y++){
                 for(int x=0; x<width; x++){
@@ -177,11 +173,15 @@ public class View extends JPanel {
                     button.setBorderPainted(false);
                     button.setVisible(false);
 
-                    if(x % 7 == 0 && counter < fieldSize){
+                    if(x % 8 == 0 && counter < fieldSize){
+                        button = fields.get(counter);
+                        button.setOpaque(false);
+                        button.setContentAreaFilled(false);
+                        button.setFocusPainted(false);
+                        button.setBorderPainted(false);
                         button.setVisible(true);
 
                         System.out.println(fields.get(counter).toString());
-                        //ImageIcon btnImg = new ImageIcon("img\\" + fields.get(counter).toString());
                         ImageIcon btnImg = new ImageIcon(fields.get(counter).toString());
                         button.setIcon(btnImg);
 
@@ -230,7 +230,6 @@ public class View extends JPanel {
             btn.repaint();
         }
 
-        ArrayList<JButton> neighbors = new ArrayList<JButton>();
         Field sourceField = null;
         for(Field fld : pairs.keySet()){
             if(pairs.get(fld).equals(btn)){

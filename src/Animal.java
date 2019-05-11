@@ -15,6 +15,7 @@ public class Animal implements Steppable {
         this.field = field;
         this.follower = null;
         Timer.getInstance().addSteppable(this);
+
     }
 
     /**
