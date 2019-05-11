@@ -175,6 +175,7 @@ public class View extends JPanel {
 
             int counter = 0;
             fields.get(5).setAnimal(new Orangutan("a", fields.get(5)));
+            fields.get(6).setAnimal(new Panda("b", fields.get(6)));
 
             for(int y=0; y<length; y++){
                 for(int x=0; x<width; x++){
