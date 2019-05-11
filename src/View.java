@@ -202,6 +202,7 @@ public class View extends JPanel {
                                 for(int x=0; x < width; x++){
                                     for(int y=0; y < length; y++) {
                                         if (pairs.get(grid[x][y]) != null) {
+                                            //TODO: Orángutánt highlightolja csak
                                             highlightNeighbors(grid[x][y], false);
                                         }
                                     }
