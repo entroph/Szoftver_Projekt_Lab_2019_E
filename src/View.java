@@ -9,11 +9,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map.Entry;
 
 public class View extends JPanel {
     private ArrayList<Field> fields;
     private HashMap<Field, JButton> pairs;
+
+    private Controller control;
 
     private CardLayout cardLayout;
     private Color menuBackGroundColor = Color.decode("#cbcbca");
@@ -33,9 +34,9 @@ public class View extends JPanel {
 
     private JPanel cardLayoutContainer;
 
-    public View(){
+    public View(Controller cr){
         cardLayoutContainer = this;
-
+        control = cr;
         cardLayout = new CardLayout();
         this.setLayout(cardLayout);
 
@@ -101,9 +102,9 @@ public class View extends JPanel {
                     if (returner == JFileChooser.APPROVE_OPTION) {
                         String fileName = fileChooser.getSelectedFile().getName();
                         if(fileName.contains("testmap") && fileName.contains(".txt") && fileName != null){
-                            Application.game.setMap(new Map(fileName));
+                            control.game.setMap(new Map(fileName));
                             try{
-                                fields = Application.game.getMap().getFields();
+                                fields = control.game.getMap().getFields();
                             }
                             catch (Exception ex){
                                 ex.printStackTrace();
@@ -152,6 +153,17 @@ public class View extends JPanel {
 
     private void startGame(JPanel gamePanel){
         try{
+
+            //IDEIGLENESEN
+            control.game.setMap(new Map("testmap2.txt"));
+            try{
+                fields = control.game.getMap().getFields();
+            }
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
+
+
             backGround = ImageIO.read(new File("img\\background.png"));
 
             //gamePanel.setLayout(); //set layout
@@ -184,16 +196,18 @@ public class View extends JPanel {
                         System.out.println(fields.get(counter).toString());
                         ImageIcon btnImg = new ImageIcon(fields.get(counter).toString());
                         button.setIcon(btnImg);
-
-                        button.addMouseListener(new java.awt.event.MouseAdapter() {
-                            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                                JButton btn = (JButton)evt.getSource();
+                        button.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                for(int x=0; x < width; x++){
+                                    for(int y=0; y < length; y++) {
+                                        if (pairs.get(grid[x][y]) != null) {
+                                            highlightNeighbors(grid[x][y], false);
+                                        }
+                                    }
+                                }
+                                JButton btn = (JButton)e.getSource();
                                 highlightNeighbors(btn, true);
-                            }
-
-                            public void mouseExited(java.awt.event.MouseEvent evt) {
-                                JButton btn = (JButton)evt.getSource();
-                                highlightNeighbors(btn, false);
                             }
                         });
 
