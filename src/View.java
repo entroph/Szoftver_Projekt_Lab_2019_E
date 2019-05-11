@@ -25,6 +25,8 @@ public class View extends JPanel {
     private JPanel endGamePanel;
     private JLabel endGameText;
 
+    private Field ogField;
+
     private JButton[][] grid; //gombok tömbje
     private int width = 12, length = 15; //12x15 gomb ebben az esetben
 
@@ -199,24 +201,22 @@ public class View extends JPanel {
                         button.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                for(int x=0; x < width; x++){
-                                    for(int y=0; y < length; y++) {
-                                        if (pairs.get(grid[x][y]) != null) {
-                                            //TODO: Orángutánt highlightolja csak
-                                            highlightNeighbors(grid[x][y], false);
+                                for (Field f : fields) {
+                                    highlightNeighbors(f, false);
+                                }
+                                if (ogField == null) {
+                                    //TODO: Csak az orángutánra kattintva mutassa a lehetséges mezőket
+                                    highlightNeighbors((Field) e.getSource(), true);
+                                    ogField = (Field)e.getSource();
+                                }else{
+                                    for (Field f: ((Field)e.getSource()).getNeighbors()) {
+                                        if(f == ogField){
+                                            control.move(ogField, (Field)e.getSource());
+                                            ogField = null;
+                                            break;
                                         }
                                     }
                                 }
-                                JButton btn = (JButton)e.getSource();
-                                highlightNeighbors(btn, true);
-                            }
-                        });
-
-                        button.addActionListener(new ActionListener() {
-
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                //lightUpNeighbors((JButton)e.getSource());
                             }
                         });
                         pairs.put(fields.get(counter), button);
@@ -232,39 +232,38 @@ public class View extends JPanel {
         }
     }
 
-    public void highlightNeighbors(JButton btn, boolean onOff){
+    public void highlightNeighbors(Field f, boolean onOff){
         if(onOff) {
-            btn.setOpaque(true);
-            btn.setBackground(Color.RED);
-            btn.repaint();
+            f.setOpaque(true);
+            f.setBackground(Color.RED);
+            f.repaint();
         }
         else {
-            btn.setOpaque(false);
-            btn.setContentAreaFilled(false);
-            btn.setBorderPainted(false);
-            btn.repaint();
+            f.setOpaque(false);
+            f.setContentAreaFilled(false);
+            f.setBorderPainted(false);
+            f.repaint();
         }
 
-        Field sourceField = null;
-        for(Field fld : pairs.keySet()){
-            if(pairs.get(fld).equals(btn)){
-                sourceField = fld;
-            }
-        }
-        for(Field nfield : sourceField.getNeighbors()){
-            JButton tempBtn = pairs.get(nfield);
+        for(Field nfield : f.getNeighbors()){
             if(onOff){
-                tempBtn.setOpaque(true);
-                tempBtn.setBackground(Color.RED);
-                tempBtn.repaint();
+                nfield.setOpaque(true);
+                nfield.setBackground(Color.RED);
+                nfield.repaint();
             }
             else {
-                tempBtn.setOpaque(false);
-                tempBtn.setContentAreaFilled(false);
-                tempBtn.setBorderPainted(false);
-                tempBtn.repaint();
+                nfield.setOpaque(false);
+                nfield.setContentAreaFilled(false);
+                nfield.setBorderPainted(false);
+                nfield.repaint();
             }
 
+        }
+    }
+
+    public void reDraw(){
+        for (Field f:fields) {
+            f.draw();
         }
     }
 }

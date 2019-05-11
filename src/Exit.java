@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -38,5 +39,15 @@ public class Exit extends Field implements Steppable{
         contains += ".png";
 
         return contains;
+    }
+
+    @Override
+    public void draw() {
+            String contains = "img\\exit";
+            if(animal != null)
+                contains += "_" + animal.toString();
+            contains += ".png";
+            this.setIcon(new ImageIcon(contains));
+            this.repaint();
     }
 }
