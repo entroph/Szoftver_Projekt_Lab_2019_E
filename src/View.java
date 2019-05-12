@@ -80,8 +80,10 @@ public class View extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(cardLayoutContainer, "gamePanel");
-                startGame(gamePanel);
+                if(fields != null) {
+                    cardLayout.show(cardLayoutContainer, "gamePanel");
+                    startGame(gamePanel);
+                }
             }
         });
 
@@ -172,16 +174,12 @@ public class View extends JPanel {
         cardLayout.show(cardLayoutContainer ,"endGame");
     }
 
+    /**
+     *
+     * @param gamePanel
+     */
     private void startGame(JPanel gamePanel){
         try{
-            //IDEIGLENESEN
-            control.game.setMap(new Map("testmap3.txt"));
-            try{
-                fields = control.game.getMap().getFields();
-            }
-            catch (Exception ex){
-                ex.printStackTrace();
-            }
             Random r = new Random();
 
             Game.getInstance().getEntrance().setAnimal(new Orangutan(Game.getInstance().getEntrance()));
