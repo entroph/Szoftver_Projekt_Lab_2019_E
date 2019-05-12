@@ -1,3 +1,0 @@
-Nincs ilyen állat!
-o1 f1 -
-f1 o1

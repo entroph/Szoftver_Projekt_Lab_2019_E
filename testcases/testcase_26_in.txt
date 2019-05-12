@@ -1,5 +1,0 @@
-loadmap testmap2
-addpanda p1 f3
-addvm vm1 f4
-step
-checkfield f3

@@ -1,6 +1,0 @@
-loadmap testmap1
-addfotel fotel1 f2
-addpanda p1 f1 lazy
-step
-checkanimal p1
-checkfotel fotel1
