@@ -8,8 +8,8 @@ public class Panda extends Animal{
     /**
      * Konstruktor.
      */
-    public Panda(String name, Field field){
-        super(name, field);
+    public Panda(Field field){
+        super(field);
         following = null;
     }
 
@@ -96,12 +96,19 @@ public class Panda extends Animal{
      * Kijárat mezőn áll, meghívja az őt eltávolító függvényeket.
      */
     public void leave() {
-        if(follower != null)
-            follower.follow(this);
-
-        Map map = Game.getInstance().getMap();
-        map.decreasePandas();
-        Game.getInstance().increasePoints();
+        if (following == null) {
+            if (follower != null) {
+                follower.follow(this);
+            }else{
+                this.getField().setAnimal(null);
+            }
+            this.setField(null);
+            Map map = Game.getInstance().getMap();
+            map.decreasePandas();
+            Game.getInstance().increasePoints();
+        }else{
+            following = null;
+        }
     }
 
     /**

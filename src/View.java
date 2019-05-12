@@ -9,10 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class View extends JPanel {
     private ArrayList<Field> fields;
-    private HashMap<Field, JButton> pairs;
 
     private Controller control;
 
@@ -21,9 +21,6 @@ public class View extends JPanel {
     private Color buttonBackgroundColor = Color.decode("#41372e");
     private Color buttonFontColor = Color.decode("#a87b50");
     private JPanel gamePanel;
-    private JPanel mainMenu;
-    private JPanel endGamePanel;
-    private JLabel endGameText;
 
     private Field ogField;
 
@@ -43,7 +40,6 @@ public class View extends JPanel {
         this.setLayout(cardLayout);
 
         grid=new JButton[width][length];
-        pairs = new HashMap<Field, JButton>();
         menu();
     }
 
@@ -54,21 +50,21 @@ public class View extends JPanel {
                 super.paintComponent(g);
 
                 Graphics2D g2 = (Graphics2D) g;
-                g2.setStroke(new BasicStroke(8));
+                g2.setStroke(new BasicStroke(5));
 
                 g2.drawImage(backGround, 0, 0, gamePanel);
 
-                if(grid != null && grid.length > 0 && fields != null && fields.size() > 0){
+                if(fields != null && fields.size() > 0){
                     for(Field fld : fields){
                         for(Field nb : fld.getNeighbors()){
-                            g2.draw(new Line2D.Float(fld.getX()+64, fld.getY()+32, nb.getX()+64, nb.getY()+32));
+                            g2.draw(new Line2D.Float(fld.getX()+32, fld.getY()+32, nb.getX()+32, nb.getY()+32));
                         }
                     }
                 }
             }
         };
 
-        mainMenu = new JPanel();
+        JPanel mainMenu = new JPanel();
         mainMenu.setLayout(null);
         mainMenu.setBackground(menuBackGroundColor);
 
@@ -103,7 +99,7 @@ public class View extends JPanel {
                     int returner = fileChooser.showOpenDialog(cardLayoutContainer);
                     if (returner == JFileChooser.APPROVE_OPTION) {
                         String fileName = fileChooser.getSelectedFile().getName();
-                        if(fileName.contains("testmap") && fileName.contains(".txt") && fileName != null){
+                        if(fileName.contains("testmap") && fileName.contains(".txt")){
                             control.game.setMap(new Map(fileName));
                             try{
                                 fields = control.game.getMap().getFields();
@@ -140,10 +136,10 @@ public class View extends JPanel {
         mainMenu.add(mapChooseBtn, BorderLayout.CENTER);
         mainMenu.add(exitBtn, BorderLayout.CENTER);
 
-        endGamePanel = new JPanel();
+        JPanel endGamePanel = new JPanel();
         endGamePanel.setLayout(null);
         endGamePanel.setBackground(menuBackGroundColor);
-        endGameText = new JLabel();
+        JLabel endGameText = new JLabel();
         endGameText.setForeground(buttonFontColor);
         endGameText.setFont(new Font("Arial", Font.PLAIN, 48));
         endGamePanel.add(endGameText);
@@ -157,14 +153,13 @@ public class View extends JPanel {
         try{
 
             //IDEIGLENESEN
-            control.game.setMap(new Map("testmap2.txt"));
+            control.game.setMap(new Map("testmap3.txt"));
             try{
                 fields = control.game.getMap().getFields();
             }
             catch (Exception ex){
                 ex.printStackTrace();
             }
-
 
             backGround = ImageIO.read(new File("img\\background.png"));
 
@@ -174,9 +169,17 @@ public class View extends JPanel {
             int fieldSize = fields.size();
 
             int counter = 0;
-            fields.get(5).setAnimal(new Orangutan("a", fields.get(5)));
-            fields.get(6).setAnimal(new Panda("b", fields.get(6)));
+            fields.get(11).setAnimal(new Orangutan(fields.get(11)));
+            fields.get(2).setAnimal(new Panda(fields.get(2)));
+            fields.get(4).setAnimal(new Panda(fields.get(4)));
+            /*fields.get(9).setAnimal(new Panda(fields.get(9)));
+            fields.get(10).setAnimal(new Panda(fields.get(10)));
+            fields.get(23).setAnimal(new Panda(fields.get(23)));
+            fields.get(38).setAnimal(new Panda(fields.get(38)));*/
 
+            int max = width*length;
+            int offset = max/fields.size();
+            Random r = new Random();
             for(int y=0; y<length; y++){
                 for(int x=0; x<width; x++){
                     JButton button = new JButton(); //creates new button
@@ -187,8 +190,8 @@ public class View extends JPanel {
                     button.setFocusPainted(false);
                     button.setBorderPainted(false);
                     button.setVisible(false);
-
-                    if(x % 8 == 0 && counter < fieldSize){
+                    int ran = r.nextInt((offset - 2) + 1) + 2;
+                    if((width*y+x) % ran == 0  && counter < fieldSize){
                         button = fields.get(counter);
                         button.setOpaque(false);
                         button.setContentAreaFilled(false);
@@ -206,9 +209,13 @@ public class View extends JPanel {
                                     highlightNeighbors(f, false);
                                 }
                                 if (ogField == null) {
-                                    //TODO: Csak az orángutánra kattintva mutassa a lehetséges mezőket
-                                    highlightNeighbors((Field) e.getSource(), true);
-                                    ogField = (Field)e.getSource();
+                                    if(((Field)e.getSource()).getAnimal() != null){
+                                        if((((Field) e.getSource()).getAnimal().toString().equals("orangutan"))) {
+                                            //TODO: Csak az orángutánra kattintva mutassa a lehetséges mezőket
+                                            highlightNeighbors((Field) e.getSource(), true);
+                                            ogField = (Field) e.getSource();
+                                        }
+                                    }
                                 }else{
                                     for (Field f: ((Field)e.getSource()).getNeighbors()) {
                                         if(f == ogField){
@@ -220,7 +227,6 @@ public class View extends JPanel {
                                 }
                             }
                         });
-                        pairs.put(fields.get(counter), button);
                         counter++;
                     }
                     grid[x][y]= button;

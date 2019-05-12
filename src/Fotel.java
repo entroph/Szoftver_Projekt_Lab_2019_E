@@ -92,13 +92,8 @@ public class Fotel extends Thing{
      * @return
      */
     @Override
-    public String toString() {
-        String contains = "img\\fotel";
-        if(sittingPanda != null)
-            contains += "_" + sittingPanda.toString(); //peldaul cabinet_panda.png ha a cabineten panda áll
+    public String toString(){
 
-        contains += ".png";
-
-        return contains;
+        return "fotel";
     }
 }

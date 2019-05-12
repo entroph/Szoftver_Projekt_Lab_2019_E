@@ -13,8 +13,8 @@ public class Orangutan extends Animal{
         waitTime = 3;
     }
 
-    public Orangutan(String name, Field field){
-        super(name, field);
+    public Orangutan(Field field){
+        super(field);
     }
 
     //In the finished application, there will be no need for this function here

@@ -6,8 +6,8 @@ public class LazyPanda extends Panda{
     //Ül-e fotelban.
     private boolean sitting;
 
-    public LazyPanda(String name, Field field) {
-        super(name, field);
+    public LazyPanda(Field field) {
+        super(field);
     }
 
     /**

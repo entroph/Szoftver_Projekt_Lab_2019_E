@@ -3,8 +3,8 @@
  */
 public class ScaredPanda extends Panda{
 
-    public ScaredPanda(String name, Field field){
-        super(name, field);
+    public ScaredPanda(Field field){
+        super(field);
     }
 
     /**

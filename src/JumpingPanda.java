@@ -3,8 +3,8 @@
  */
 public class JumpingPanda extends Panda {
 
-    public JumpingPanda(String name, Field field){
-        super(name, field);
+    public JumpingPanda(Field field){
+        super(field);
     }
 
     /**

@@ -141,15 +141,7 @@ public class Field extends JButton implements Drawable {
 
     @Override
     public void draw() {
-        String contains = "img\\field";
-        if(animal != null)
-            contains += "_" + animal.toString();
-
-        if(thing != null)
-            contains += "_" + thing.toString();
-
-        contains += ".png";
-        this.setIcon(new ImageIcon(contains));
+        this.setIcon(new ImageIcon(this.toString()));
         this.repaint();
     }
 }

@@ -8,10 +8,7 @@ public class Animal implements Steppable {
      */
     Field field;
 
-    String name;
-
-    public Animal(String name, Field field){
-        this.name = name;
+    public Animal(Field field){
         this.field = field;
         this.follower = null;
         Timer.getInstance().addSteppable(this);
@@ -33,8 +30,9 @@ public class Animal implements Steppable {
                 if (thingOnNewField.interactWith(this)) { //if returns true, animal can move to that field
                     if (follower != null) {
                         follower.follow(this);
+                    }else{
+                        this.field.remove(this);
                     }
-                    this.field.remove(this);
                     newField.accept(this);
                 }
             }
@@ -129,6 +127,9 @@ public class Animal implements Steppable {
      * @param a előtte álló állat.
      */
     public void follow(Animal a) {
+        if(follower != null){
+            follower.follow(this);
+        }
         Field newField = a.getField();
         this.field.remove(this);
         newField.accept(this);
@@ -186,10 +187,6 @@ public class Animal implements Steppable {
      */
     public Animal getFollower() {
         return follower;
-    }
-
-    public String getName(){
-        return this.name;
     }
 
     @Override

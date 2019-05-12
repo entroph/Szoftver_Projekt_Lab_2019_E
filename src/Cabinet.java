@@ -57,11 +57,7 @@ public class Cabinet extends Thing{
 
     @Override
     public String toString() {
-        String contains = "cabinet";
-        if(this.field.getAnimal() != null)
-            contains += "_" + this.getField().getAnimal().toString(); //peldaul cabinet_panda.png ha a cabineten panda áll
-
-        return contains;
+        return "cabinet";
     }
 }
 

@@ -67,9 +67,9 @@ public class WeakField extends Field {
     @Override
     public String toString() {
         if(hitpoints < 0)
-            return "img\\cracked_field.png";
+            return "img\\brokenfield.png";
 
-        String contains = "img\\emptyfield";
+        String contains = "img\\field";
         if(animal != null)
             contains += "_" + animal.toString();
 

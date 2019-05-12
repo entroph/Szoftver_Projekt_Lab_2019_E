@@ -32,10 +32,6 @@ public class Entrance extends Field implements Steppable{
         String contains = "img\\entrance";
         if(animal != null)
             contains += "_" + animal.toString();
-
-        if(thing != null)
-            contains += "_" + thing.toString();
-
         contains += ".png";
 
         return contains;
@@ -43,11 +39,7 @@ public class Entrance extends Field implements Steppable{
 
     @Override
     public void draw() {
-        String contains = "img\\entrance";
-        if(animal != null)
-            contains += "_" + animal.toString();
-        contains += ".png";
-        this.setIcon(new ImageIcon(contains));
+        this.setIcon(new ImageIcon(this.toString()));
         this.repaint();
     }
 }

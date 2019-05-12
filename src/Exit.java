@@ -11,6 +11,7 @@ public class Exit extends Field implements Steppable{
         animal =  null;
         thing = null;
         this.name = name;
+        Timer.getInstance().addSteppable(this);
     }
 
     /**
@@ -24,7 +25,9 @@ public class Exit extends Field implements Steppable{
 
     @Override
     public void step() {
-
+        if(this.animal != null){
+            animal.leave();
+        }
     }
 
     @Override
@@ -32,10 +35,6 @@ public class Exit extends Field implements Steppable{
         String contains = "img\\exit";
         if(animal != null)
             contains += "_" + animal.toString();
-
-        if(thing != null)
-            contains += "_" + thing.toString();
-
         contains += ".png";
 
         return contains;
@@ -43,11 +42,7 @@ public class Exit extends Field implements Steppable{
 
     @Override
     public void draw() {
-            String contains = "img\\exit";
-            if(animal != null)
-                contains += "_" + animal.toString();
-            contains += ".png";
-            this.setIcon(new ImageIcon(contains));
+            this.setIcon(new ImageIcon(this.toString()));
             this.repaint();
     }
 }
