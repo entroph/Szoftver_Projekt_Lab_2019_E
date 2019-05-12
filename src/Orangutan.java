@@ -75,6 +75,9 @@ public class Orangutan extends Animal{
         Entrance ent = Game.getInstance().getEntrance();
         if (follower != null) {
             follower.follow(this);
+        }else{
+            this.getField().setAnimal(null);
+            this.setField(null);
         }
         setFollower(null);
         ent.accept(this);
