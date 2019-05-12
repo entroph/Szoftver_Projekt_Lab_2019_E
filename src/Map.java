@@ -98,12 +98,11 @@ public class Map {
         return fields;
     }
 
-    /**
+    /*
      * Játék vége, tovább hívja a Game EndGame függvényét.
-     */
     public void gameOver() {
-
-    }
+        Game.getInstance().endGame();
+    }*/
 
     /**
      * Visszakéri a pályán lévő pandák számát.

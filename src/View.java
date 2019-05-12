@@ -25,7 +25,7 @@ public class View extends JPanel {
     private Field ogField;
 
     private JButton[][] grid; //gombok tömbje
-    private int width = 12, length = 15; //12x15 gomb ebben az esetben
+    private int width = 15, length = 16; //12x15 gomb ebben az esetben
 
     private BufferedImage backGround;
 
@@ -50,7 +50,7 @@ public class View extends JPanel {
                 super.paintComponent(g);
 
                 Graphics2D g2 = (Graphics2D) g;
-                g2.setStroke(new BasicStroke(5));
+                g2.setStroke(new BasicStroke(3));
 
                 g2.drawImage(backGround, 0, 0, gamePanel);
 
@@ -153,7 +153,7 @@ public class View extends JPanel {
         try{
 
             //IDEIGLENESEN
-            control.game.setMap(new Map("testmap3.txt"));
+            control.game.setMap(new Map("testmap2.txt"));
             try{
                 fields = control.game.getMap().getFields();
             }
@@ -171,27 +171,23 @@ public class View extends JPanel {
             int counter = 0;
             fields.get(11).setAnimal(new Orangutan(fields.get(11)));
             fields.get(2).setAnimal(new Panda(fields.get(2)));
-            fields.get(4).setAnimal(new Panda(fields.get(4)));
-            /*fields.get(9).setAnimal(new Panda(fields.get(9)));
+            /*fields.get(4).setAnimal(new Panda(fields.get(4)));
+            fields.get(9).setAnimal(new Panda(fields.get(9)));
             fields.get(10).setAnimal(new Panda(fields.get(10)));
             fields.get(23).setAnimal(new Panda(fields.get(23)));
             fields.get(38).setAnimal(new Panda(fields.get(38)));*/
-
-            int max = width*length;
-            int offset = max/fields.size();
-            Random r = new Random();
+            int offset = width*length/fields.size();
             for(int y=0; y<length; y++){
                 for(int x=0; x<width; x++){
                     JButton button = new JButton(); //creates new button
 
-                    //button.setSize(64, 64);
                     button.setOpaque(false);
                     button.setContentAreaFilled(false);
                     button.setFocusPainted(false);
                     button.setBorderPainted(false);
                     button.setVisible(false);
-                    int ran = r.nextInt((offset - 2) + 1) + 2;
-                    if((width*y+x) % ran == 0  && counter < fieldSize){
+
+                    if(((((y * length) + x) % offset) == 2) && (counter < fieldSize)){
                         button = fields.get(counter);
                         button.setOpaque(false);
                         button.setContentAreaFilled(false);

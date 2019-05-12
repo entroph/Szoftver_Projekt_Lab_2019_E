@@ -20,4 +20,8 @@ public class Controller {
             mainPanel.reDraw();
         }
     }
+
+    public void endGame(){
+        game.getPoints()
+    }
 }

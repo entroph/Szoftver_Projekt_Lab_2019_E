@@ -33,7 +33,7 @@ public class Game {
      * Játék vége.
      */
     public void endGame() {
-
+        Controller.endGame();
     }
 
     /**
@@ -42,7 +42,6 @@ public class Game {
     public void increasePoints() {
         points++;
         if (map.pandasLeft() <= 0) {
-            map.gameOver();
             endGame();
         }
     }
