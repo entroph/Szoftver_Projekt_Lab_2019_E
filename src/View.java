@@ -190,12 +190,22 @@ public class View extends JPanel {
             int fieldcount = fields.size();
             int random;
             int i = 0;
+            int ptype;
             Game.getInstance().getMap().setNumberOfPandas(numberofpandas);
             while(i < numberofpandas) {
                 random = r.nextInt(fieldcount);
                 if (fields.get(random).getAnimal() == null) {
                     if (fields.get(random).getThing() == null) {
-                        fields.get(random).setAnimal(new Panda(fields.get(random)));
+                        ptype = r.nextInt(4);
+                        if(ptype == 0){
+                            fields.get(random).setAnimal(new Panda(fields.get(random)));
+                        }else if(ptype == 1){
+                            fields.get(random).setAnimal(new LazyPanda(fields.get(random)));
+                        }else if(ptype == 2){
+                            fields.get(random).setAnimal(new ScaredPanda(fields.get(random)));
+                        }else{
+                            fields.get(random).setAnimal(new JumpingPanda(fields.get(random)));
+                        }
                         i++;
                     }
                 }
