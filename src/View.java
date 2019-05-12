@@ -56,11 +56,10 @@ public class View extends JPanel {
                 g2.setStroke(new BasicStroke(3));
 
                 g2.drawImage(backGround, 0, 0, gamePanel);
-
                 if(fields != null && fields.size() > 0){
                     for(Field fld : fields){
-                        for(Field nb : fld.getNeighbors()){
-                            g2.draw(new Line2D.Float(fld.getX()+32, fld.getY()+32, nb.getX()+32, nb.getY()+32));
+                        for (Field nb : fld.getNeighbors()) {
+                            g2.draw(new Line2D.Float(fld.getX() + 32, fld.getY() + 32, nb.getX() + 32, nb.getY() + 32));
                         }
                     }
                 }
@@ -292,7 +291,7 @@ public class View extends JPanel {
     public void highlightNeighbors(Field f, boolean onOff){
         if(onOff) {
             f.setOpaque(true);
-            f.setBackground(Color.RED);
+            f.setBackground(Color.GREEN);
             f.repaint();
         }
         else {
@@ -304,9 +303,21 @@ public class View extends JPanel {
 
         for(Field nfield : f.getNeighbors()){
             if(onOff){
-                nfield.setOpaque(true);
-                nfield.setBackground(Color.RED);
-                nfield.repaint();
+                if(nfield.getThing() != null){
+                    if(nfield.getThing().interactWith(new Animal())) {
+                        nfield.setOpaque(true);
+                        nfield.setBackground(Color.GREEN);
+                        nfield.repaint();
+                    }else{
+                        nfield.setOpaque(true);
+                        nfield.setBackground(Color.RED);
+                        nfield.repaint();
+                    }
+                }else{
+                    nfield.setOpaque(true);
+                    nfield.setBackground(Color.GREEN);
+                    nfield.repaint();
+                }
             }
             else {
                 nfield.setOpaque(false);

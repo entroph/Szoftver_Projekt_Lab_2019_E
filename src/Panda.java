@@ -15,6 +15,7 @@ public class Panda extends Animal{
         following = null;
     }
 
+
     public void step(){
         if(following == null) {
             Random r = new Random();

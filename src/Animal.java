@@ -15,6 +15,10 @@ public class Animal implements Steppable {
 
     }
 
+    public Animal(){
+
+    }
+
     /**
      * Az állat mozgatása a paraméterként kapott mezőre.
      * @param newField
