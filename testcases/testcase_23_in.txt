@@ -1,7 +1,0 @@
-loadmap testmap2
-addpanda p1 f13
-move p1 f19
-step
-checkanimal p1
-checkfield f19
-checkfield f18

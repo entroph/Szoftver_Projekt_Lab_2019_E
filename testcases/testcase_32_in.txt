@@ -1,6 +1,0 @@
-loadmap testmap1
-addorangutan o1 f1
-addpanda p1 f2
-move p1 f1
-checkanimal o1
-checkanimal p1

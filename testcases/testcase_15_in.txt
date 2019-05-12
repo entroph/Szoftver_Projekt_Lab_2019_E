@@ -1,4 +1,0 @@
-loadmap testmap1
-addpanda p1 f4
-move p1 wf1
-checkweakfield wf1
