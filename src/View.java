@@ -21,7 +21,8 @@ public class View extends JPanel {
     private Color buttonBackgroundColor = Color.decode("#41372e");
     private Color buttonFontColor = Color.decode("#a87b50");
     private JPanel gamePanel;
-
+    private JPanel endGamePanel;
+    private JLabel endGameText;
     private Field ogField;
 
     private JButton[][] grid; //gombok tömbje
@@ -127,19 +128,17 @@ public class View extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
-                /*endGameText.setText("A játék vége, " + currentGame.getPoints() + " pontot gyűjtöttél.");
-                endGameText.setBounds(300, 100, 800, 400);
-                cardLayout.show(cardLayoutContainer ,"endGame");*/
+
             }
         });
         mainMenu.add(startBtn, BorderLayout.CENTER);
         mainMenu.add(mapChooseBtn, BorderLayout.CENTER);
         mainMenu.add(exitBtn, BorderLayout.CENTER);
 
-        JPanel endGamePanel = new JPanel();
+        endGamePanel = new JPanel();
         endGamePanel.setLayout(null);
         endGamePanel.setBackground(menuBackGroundColor);
-        JLabel endGameText = new JLabel();
+        endGameText = new JLabel();
         endGameText.setForeground(buttonFontColor);
         endGameText.setFont(new Font("Arial", Font.PLAIN, 48));
         endGamePanel.add(endGameText);
@@ -147,6 +146,12 @@ public class View extends JPanel {
         this.add(mainMenu, "mainMenu");
         this.add(gamePanel, "gamePanel");
         this.add(endGamePanel, "endGame");
+    }
+
+    public void endGame(){
+        endGameText.setText("A játék vége, " + Game.getInstance().getPoints() + " pontot gyűjtöttél.");
+                endGameText.setBounds(300, 100, 800, 400);
+                cardLayout.show(cardLayoutContainer ,"endGame");
     }
 
     private void startGame(JPanel gamePanel){

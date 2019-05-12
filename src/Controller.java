@@ -22,6 +22,6 @@ public class Controller {
     }
 
     public static void endGame(){
-        game.getPoints();
+        mainPanel.endGame();
     }
 }
