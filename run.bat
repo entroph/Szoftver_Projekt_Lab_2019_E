@@ -1,3 +1,3 @@
 @echo off
-java -jar Proto.jar
-@echo Running Proto.jar
+java -jar PandaPlaza.jar
+@echo Running PandaPlaza.jar
