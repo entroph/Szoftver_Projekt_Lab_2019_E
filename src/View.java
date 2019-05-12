@@ -174,13 +174,10 @@ public class View extends JPanel {
             int fieldSize = fields.size();
 
             int counter = 0;
-            fields.get(11).setAnimal(new Orangutan(fields.get(11)));
-            fields.get(2).setAnimal(new Panda(fields.get(2)));
-            fields.get(4).setAnimal(new Panda(fields.get(4)));
-            fields.get(9).setAnimal(new Panda(fields.get(9)));
-            fields.get(10).setAnimal(new Panda(fields.get(10)));
-            fields.get(23).setAnimal(new Panda(fields.get(23)));
-            fields.get(38).setAnimal(new Panda(fields.get(38)));
+
+            Game.getInstance().getEntrance().setAnimal(new Orangutan(Game.getInstance().getEntrance()));
+            fields.get(34).setAnimal(new LazyPanda(fields.get(34)));
+
             int offset = width*length/fields.size();
             for(int y=0; y<length; y++){
                 for(int x=0; x<width; x++){

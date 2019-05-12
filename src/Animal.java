@@ -23,7 +23,9 @@ public class Animal implements Steppable {
         Thing thingOnNewField = newField.getThing();
         Animal animalOnNewField = newField.getAnimal();
         if (animalOnNewField != null) { //if there is an animal on it, then collide with it
-            this.collideWith(animalOnNewField);
+            if(thingOnNewField == null) {
+                this.collideWith(animalOnNewField);
+            }
         }
         else {
             if (thingOnNewField != null) {
