@@ -183,9 +183,35 @@ public class View extends JPanel {
             catch (Exception ex){
                 ex.printStackTrace();
             }
+            Random r = new Random();
 
             Game.getInstance().getEntrance().setAnimal(new Orangutan(Game.getInstance().getEntrance()));
-            Game.getInstance().getMap().setNumberOfPandas((Integer)ogspinner.getValue());
+            int numberofpandas = (Integer)pdspinner.getValue();
+            int fieldcount = fields.size();
+            int random;
+            int i = 0;
+            Game.getInstance().getMap().setNumberOfPandas(numberofpandas);
+            while(i < numberofpandas) {
+                random = r.nextInt(fieldcount);
+                if (fields.get(random).getAnimal() == null) {
+                    if (fields.get(random).getThing() == null) {
+                        fields.get(random).setAnimal(new Panda(fields.get(random)));
+                        i++;
+                    }
+                }
+            }
+            boolean succ = false;
+            if((Integer)ogspinner.getValue() == 2){
+                while(!succ){
+                    random = r.nextInt(fieldcount);
+                    if (fields.get(random).getAnimal() == null) {
+                        if (fields.get(random).getThing() == null) {
+                            fields.get(random).setAnimal(new Orangutan(fields.get(random)));
+                            succ = true;
+                        }
+                    }
+                }
+            }
 
 
             backGround = ImageIO.read(new File("img\\background.png"));
