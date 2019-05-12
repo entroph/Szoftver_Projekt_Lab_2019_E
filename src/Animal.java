@@ -127,14 +127,13 @@ public class Animal implements Steppable {
      * @param a előtte álló állat.
      */
     public void follow(Animal a) {
-        Field newField = a.getField();
         if(follower != null){
             follower.follow(this);
         }else{
             this.field.remove(this);
         }
-        newField.accept(this);
-        newField.setAnimal(this);
+        a.getField().accept(this);
+        a.getField().setAnimal(this);
     }
 
     public void leave() {

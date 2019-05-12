@@ -89,7 +89,6 @@ public class Panda extends Animal{
      * Kijárat mezőn áll, meghívja az őt eltávolító függvényeket.
      */
     public void leave() {
-        if (following == null) {
             if (follower != null) {
                 follower.follow(this);
             }else{
@@ -99,9 +98,6 @@ public class Panda extends Animal{
             Map map = Game.getInstance().getMap();
             map.decreasePandas();
             Game.getInstance().increasePoints();
-        }else{
-            following = null;
-        }
     }
 
     /**

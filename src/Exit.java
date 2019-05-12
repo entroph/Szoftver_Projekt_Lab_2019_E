@@ -16,11 +16,15 @@ public class Exit extends Field implements Steppable{
 
     /**
      * A Field-re teszi a paraméterként kapott állatot, majd eltünteti azt.
-     * @param a
+     * @param o
      */
-    public void accept(Animal a) {
-        a.setField(this);
-        a.leave();
+    public void accept(Orangutan o) {
+        o.setField(this);
+        o.leave();
+    }
+
+    public void accept(Panda p){
+        p.setField(this);
     }
 
     @Override
