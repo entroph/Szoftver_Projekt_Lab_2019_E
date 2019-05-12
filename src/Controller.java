@@ -1,4 +1,3 @@
-import javax.swing.*;
 /**
  * Alkalmazás osztály, a console-on vezeti a felhasználót
  */
