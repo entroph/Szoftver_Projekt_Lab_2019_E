@@ -1,4 +1,0 @@
-loadmap testmap1
-addorangutan o1 f4
-move o1 wf1
-checkweakfield wf1
