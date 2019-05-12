@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * A panda osztály megvalósítása.
  */
@@ -13,39 +15,28 @@ public class Panda extends Animal{
         following = null;
     }
 
-    /**
-     * Konstruktor, rárakja a Field-re.
-     * @param cf Field.
-     */
-    /*public Panda(Field cf)
-    {
-        setField(cf);
-    }*/
+    public void step(){
+        if(following == null) {
+            Random r = new Random();
+            int nb = r.nextInt(this.getField().getNeighbors().size() - 1);
+            move(this.getField().getNeighbors().get(nb));
+        }
+    }
 
-    //Ebben az esetben fölösleges különbséget tenni Panda és Orangutan között,
-    //csak is azért van nekik külön move függvényük, mert a Panda majd Step-re lép
-
-	/*public void Move(Field nf) {
-		tabs++;
-		logger(toString() + ".Move");
-		Thing a = new Thing();
-		if((a = nf.getThing()) != null){
-			if(a.InteractWith(this)){
-				if(nf.getAnimal() == null){
-					Field cf = GetField();
-					nf.Accept(this);
-					cf.Remove(this);
-				}
-			}
-		}else{
-			if(nf.getAnimal() == null){
-				Field cf = GetField();
-				nf.Accept(this);
-				cf.Remove(this);
-			}
-		}
-		tabs--;
-	}*/
+	public void move(Field f) {
+            Thing thingOnNewField = f.getThing();
+            Animal animalOnNewField = f.getAnimal();
+            if (animalOnNewField != null) { //if there is an animal on it, then collide with it
+                if (thingOnNewField == null) {
+                    this.collideWith(animalOnNewField);
+                }
+            } else {
+                if (thingOnNewField == null) {
+                    this.field.remove(this);
+                    f.accept(this);
+                }
+            }
+	}
 
     /**
      * Ütközik a paraméterként kapott állattal.
@@ -105,6 +96,7 @@ public class Panda extends Animal{
             this.setField(null);
             Map map = Game.getInstance().getMap();
             map.decreasePandas();
+            Timer.getInstance().removeSteppable(this);
             Game.getInstance().increasePoints();
         }else{
             following = null;

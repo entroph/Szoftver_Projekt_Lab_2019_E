@@ -36,9 +36,11 @@ public class Fotel extends Thing{
                 for (Field field : neighs) {
                     Animal tempAnimal = field.getAnimal();
                     if (tempAnimal != null) {
-                        if (tempAnimal.lazy(this)) {
-                            busy = true;
-                            break;
+                        if(tempAnimal != sittingPanda) {
+                            if (tempAnimal.lazy(this)) {
+                                busy = true;
+                                break;
+                            }
                         }
                         //Only one panda can sit into a Fotel, so the first one sits down in it
                         // and the Fotel has no effect on the rest of them even if there are more pandas
