@@ -89,9 +89,7 @@ public class Animal implements Steppable {
     /**
      * Az ijedős panda megijed, a többi állat nem reagál.
      */
-    public void scare() {
-
-    }
+    public void scare(){}
 
     /**
      * Két állat helyet cserél.

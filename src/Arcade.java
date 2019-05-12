@@ -17,7 +17,7 @@ public class Arcade extends Thing{
             for(Field field : neighs) {
                 Animal tempAnimal = field.getAnimal();
                 if (tempAnimal != null)
-                    tempAnimal.scare();
+                    field.getAnimal().scare();
             }
         }
     }

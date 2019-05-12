@@ -27,8 +27,8 @@ public class View extends JPanel {
     private JSpinner pdspinner;
     private JSpinner ogspinner;
 
-    private JButton[][] grid; //gombok tömbje
-    private int width = 15, length = 16; //12x15 gomb ebben az esetben
+    private JButton[][] grid;
+    private int width = 15, length = 16;
 
     private BufferedImage backGround;
 
@@ -226,9 +226,6 @@ public class View extends JPanel {
 
             backGround = ImageIO.read(new File("img\\background.png"));
 
-            //gamePanel.setLayout(); //set layout
-            //grid=new JButton[width][length]; //allocate the size of grid
-
             int fieldSize = fields.size();
 
             int counter = 0;
@@ -236,7 +233,7 @@ public class View extends JPanel {
             int offset = width*length/fields.size();
             for(int y=0; y<length; y++){
                 for(int x=0; x<width; x++){
-                    JButton button = new JButton(); //creates new button
+                    JButton button = new JButton();
 
                     button.setOpaque(false);
                     button.setContentAreaFilled(false);
@@ -283,7 +280,7 @@ public class View extends JPanel {
                         counter++;
                     }
                     grid[x][y]= button;
-                    gamePanel.add(grid[x][y]); //adds button to grid
+                    gamePanel.add(grid[x][y]);
                 }
             }
         }

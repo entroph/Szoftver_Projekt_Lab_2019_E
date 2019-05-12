@@ -17,7 +17,7 @@ public class VendingMachine extends Thing{
             for(Field field : neighs) {
                 Animal tempAnimal = field.getAnimal();
                 if (tempAnimal != null)
-                    tempAnimal.jump();
+                    field.getAnimal().jump();
             }
         }
     }
