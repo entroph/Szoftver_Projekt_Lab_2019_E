@@ -18,7 +18,7 @@ public class Map {
         File f = new File(mapname);
         Scanner sc = new Scanner(f);
         String split[];
-        while(sc.hasNextLine()){ //TODO: valamiért a második map-ot nem tölti be, lehet én kúrtam el valamit - Máté
+        while(sc.hasNextLine()){
             String data = sc.nextLine();
             if(data.equals("map")){
                 split = sc.nextLine().split(",");

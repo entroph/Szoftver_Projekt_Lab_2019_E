@@ -22,7 +22,9 @@ public class Timer {
     public void tick() {
         if (steppable != null){
             for (Steppable s:steppable) {
-                s.step();
+                if(s != null){
+                    s.step();
+                }
             }
         }
     }

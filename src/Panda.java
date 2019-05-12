@@ -18,8 +18,10 @@ public class Panda extends Animal{
     public void step(){
         if(following == null) {
             Random r = new Random();
-            int nb = r.nextInt(this.getField().getNeighbors().size() - 1);
-            move(this.getField().getNeighbors().get(nb));
+            if(this.getField() != null) {
+                int nb = r.nextInt(this.getField().getNeighbors().size() - 1);
+                move(this.getField().getNeighbors().get(nb));
+            }
         }
     }
 
@@ -96,13 +98,10 @@ public class Panda extends Animal{
             this.setField(null);
             Map map = Game.getInstance().getMap();
             map.decreasePandas();
-            Timer.getInstance().removeSteppable(this);
             Game.getInstance().increasePoints();
         }else{
             following = null;
         }
-
-
     }
 
     /**

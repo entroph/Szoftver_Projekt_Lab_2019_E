@@ -24,6 +24,8 @@ public class View extends JPanel {
     private JPanel endGamePanel;
     private JLabel endGameText;
     private Field ogField;
+    private JSpinner pdspinner;
+    private JSpinner ogspinner;
 
     private JButton[][] grid; //gombok tömbje
     private int width = 15, length = 16; //12x15 gomb ebben az esetben
@@ -116,6 +118,19 @@ public class View extends JPanel {
                 }
             }
         });
+        JLabel pdlabel = new JLabel();
+        pdlabel.setText("Pandák száma:");
+        pdlabel.setBounds(440,260, 100,30);
+        SpinnerModel pdmodel = new SpinnerNumberModel(1, 1, 5, 1);
+        pdspinner = new JSpinner(pdmodel);
+        pdspinner.setBounds(530,260,50,30);
+
+        JLabel oglabel = new JLabel();
+        oglabel.setText("Orángutánok száma:");
+        oglabel.setBounds(670,260,130,30);
+        SpinnerModel ogmodel = new SpinnerNumberModel(1,1,2,1);
+        ogspinner = new JSpinner(ogmodel);
+        ogspinner.setBounds(790,260,50,30);
 
         JButton exitBtn = new JButton("Kilépés");
         exitBtn.setFont(new Font("Arial", Font.PLAIN, 48));
@@ -132,6 +147,10 @@ public class View extends JPanel {
             }
         });
         mainMenu.add(startBtn, BorderLayout.CENTER);
+        mainMenu.add(pdlabel, BorderLayout.CENTER);
+        mainMenu.add(pdspinner, BorderLayout.CENTER);
+        mainMenu.add(oglabel, BorderLayout.CENTER);
+        mainMenu.add(ogspinner, BorderLayout.CENTER);
         mainMenu.add(mapChooseBtn, BorderLayout.CENTER);
         mainMenu.add(exitBtn, BorderLayout.CENTER);
 
@@ -150,13 +169,12 @@ public class View extends JPanel {
 
     public void endGame(){
         endGameText.setText("A játék vége, " + Game.getInstance().getPoints() + " pontot gyűjtöttél.");
-                endGameText.setBounds(300, 100, 800, 400);
-                cardLayout.show(cardLayoutContainer ,"endGame");
+        endGameText.setBounds(300, 100, 800, 400);
+        cardLayout.show(cardLayoutContainer ,"endGame");
     }
 
     private void startGame(JPanel gamePanel){
         try{
-
             //IDEIGLENESEN
             control.game.setMap(new Map("testmap3.txt"));
             try{
@@ -166,6 +184,10 @@ public class View extends JPanel {
                 ex.printStackTrace();
             }
 
+            Game.getInstance().getEntrance().setAnimal(new Orangutan(Game.getInstance().getEntrance()));
+            Game.getInstance().getMap().setNumberOfPandas((Integer)ogspinner.getValue());
+
+
             backGround = ImageIO.read(new File("img\\background.png"));
 
             //gamePanel.setLayout(); //set layout
@@ -174,9 +196,6 @@ public class View extends JPanel {
             int fieldSize = fields.size();
 
             int counter = 0;
-
-            Game.getInstance().getEntrance().setAnimal(new Orangutan(Game.getInstance().getEntrance()));
-            fields.get(33).setAnimal(new LazyPanda(fields.get(33)));
 
             int offset = width*length/fields.size();
             for(int y=0; y<length; y++){
@@ -209,7 +228,6 @@ public class View extends JPanel {
                                 if (ogField == null) {
                                     if(((Field)e.getSource()).getAnimal() != null){
                                         if((((Field) e.getSource()).getAnimal().toString().equals("orangutan"))) {
-                                            //TODO: Csak az orángutánra kattintva mutassa a lehetséges mezőket
                                             highlightNeighbors((Field) e.getSource(), true);
                                             ogField = (Field) e.getSource();
                                         }
